@@ -23,7 +23,7 @@ export default function ChatUI(){
                     <input className="typing" type="text"/>
                 </div>
                 <button>
-                        Chat
+                    Chat
                 </button>
 
 

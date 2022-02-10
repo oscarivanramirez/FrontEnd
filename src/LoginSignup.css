@@ -1,0 +1,6 @@
+div{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 30vw;
+}

@@ -4,6 +4,7 @@ import axios from "axios"; // used for fetching data from API aswell
 
 import ChatUI from "./ChatUI";
 import HomeScreen from "./HomeScreen";
+import LoginSignup from "./LoginSignup";
 
 export default function TeleStreamApp(){
     return(
@@ -12,6 +13,7 @@ export default function TeleStreamApp(){
             <HomeScreen/>*/}
             
             <HomeScreen/>
+            <LoginSignup/>
         </div>
     )
 }
