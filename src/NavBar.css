@@ -1,0 +1,42 @@
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    padding: 0 8px;
+}
+
+.main-container{
+    width: fit-content;
+}
+
+.main-nav{
+    position: fixed;
+    display: flex;
+    padding: 2em 4em;
+}
+
+.main-nav .ul-first{
+    position: fixed;
+    display: flex;
+}
+
+.main-nav .ul-sec{
+    position: fixed;
+    display: flex;
+    right: 4em;
+    margin-left: 1.5em;
+}
+
+.main-nav .ul-sec li{
+    margin-right: 10px;
+}
+
+.main-nav .ul-sec li a{
+    border: 5px solid black;
+    border-radius: 16px;
+    padding: 4px 16px;
+    margin: auto;
+    background-color: beige;
+}
