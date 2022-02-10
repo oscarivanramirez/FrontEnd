@@ -1,0 +1,86 @@
+.{
+    margin: 0;
+    padding: 0;
+}
+
+.container {  
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Header Header Header Header Header"
+      "LeftSide Popular Popular Popular Rightside"
+      "LeftSide Recommended Recommended Recommended Rightside"
+      "LeftSide Genre Genre Genre Rightside"
+      "Footer Footer Footer Footer Footer";
+  }
+  
+  .Header {  display: grid;
+    background-color: red;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ".";
+    grid-area: Header;
+
+  }
+  
+  .Footer {  display: grid;
+    background-color: red;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ".";
+    grid-area: Footer;
+  }
+  
+  .Popular {  display: grid;
+    background-color: blue;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ".";
+    grid-area: Popular;
+  }
+  
+  .Recommended {  display: grid;
+    background-color: green;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . . . .";
+    grid-area: Recommended;
+  }
+  
+  .Genre {  display: grid;
+    background-color: orange;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . . . . . . .";
+    grid-area: Genre;
+  }
+  
+  .LeftSide { grid-area: LeftSide; }
+  
+  .Rightside { grid-area: Rightside; }
+  
