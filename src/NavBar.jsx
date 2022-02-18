@@ -5,7 +5,7 @@ export default function NavBar(){
     return(
         <div className="Header">
             <div className="logo">
-                <h1>TeleStream</h1>
+                <h1><a href="#">TeleStream</a></h1>
             </div>
             <div className="browse">
                 <input type="text"/>
