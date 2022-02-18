@@ -10,6 +10,10 @@ export default function LoginSignup(){
 
     const [newUser, setNewUser] = useState('');
 
+    const [userLogin, setUserLogin] = useState('');
+
+    const [refresh, setRefresh] = useState(0);
+
     useEffect(() =>{
         axios.get('users/list')
             .then((res) => {
@@ -21,12 +25,13 @@ export default function LoginSignup(){
                 console.log(err);
                 setError(err.toString());
             })
-    }, [])
-    //`https://demo-repo23.herokuapp.com/rooms/create/${newRoomName}`
+    }, [refresh])
+    
     const handleCreateUser = () =>{
-        axios.post(`https://swejol.herokuapp.com/users/create/${newUser}`)
+        axios.post(`users/create/${newUser}`)
             .then((res) => {
                 console.log(res);
+                setRefresh(refresh + 1);
             })
             .catch((err) =>{
                 console.log(err)
@@ -34,16 +39,27 @@ export default function LoginSignup(){
             })
     }
 
-
+    const handleUserLogin = () =>{
+        try{
+            if(users[userLogin].userName){
+                console.log('Congrats')
+                setRefresh(refresh + 1);
+            }
+        }
+        catch(err) {
+           console.log(err);
+           setError(err.toString())
+        }
+    }
 
     return(
         <div>
             {error}
-            {users && 
+            {/*users && 
                 <div>  
-                    {users['dsadasdsa'].userName}
+                    {users[userLogin].userName}
                 </div>
-
+            */
             }
             <div>
                 <h1>
@@ -52,14 +68,15 @@ export default function LoginSignup(){
                 <h4>
                     Username  
                 </h4>
-                <input type="text"/>
-                <h4>
+                <input 
+                    value={userLogin} 
+                    onChange={(event) => setUserLogin(event.target.value)}
+                    placeholder={'Login Using UserName'}/>
+                {/*<h4>
                     Password
                 </h4>
-                <input type="text"/>
-                <button>
-                    Login
-                </button>
+                <input type="text"/>*/}
+                <button onClick={handleUserLogin}>Login</button>
             </div>
 
 
@@ -75,6 +92,7 @@ export default function LoginSignup(){
                     value={newUser} 
                     onChange={(event) => setNewUser(event.target.value)}
                     placeholder={'Enter a UserName'}/>
+
                 <button onClick={handleCreateUser}>Sign Up</button>
 
                 {/*<h4>
