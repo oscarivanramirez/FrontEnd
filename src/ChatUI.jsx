@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import './ChatUI.css'
+import axios from "axios";
 
 export default function ChatUI(){
 
+    const [newMessage, addNewMsg] = useState('');
+    const [error, setError] = useState('');
+
+    const handleAddMessage = () => {
+        axios.post(`messages/create/${newMessage}`)
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) =>{
+            console.log(err)
+            setError(err.toString())
+        })
+    }
     return(
                                        /* MAIN DIV */
 
@@ -20,11 +34,12 @@ export default function ChatUI(){
                     Actual Messages
                 </div>
                 <div> {/* Div for user input and Chat Button */}
-                    <input className="typing" type="text"/>
+                    <input 
+                    value={newMessage}
+                    onChange={(event) => addNewMsg(event.target.value)}
+                    className="typing" type="text"/>
                 </div>
-                <button>
-                    Chat
-                </button>
+                <button onClick={handleAddMessage}>Chat</button>
 
 
 
