@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './ChatUI.css'
 import axios from "axios";
 
@@ -6,11 +6,33 @@ export default function ChatUI(){
 
     const [newMessage, addNewMsg] = useState('');
     const [error, setError] = useState('');
+    const [messages, setMessages] = useState(undefined);
+    const [refresh, setRefresh] = useState(0);
+
+    useEffect(() => {
+        axios.get('/messages/list')
+        .then((res) => {
+            if(res.data){
+                setMessages(res.data);
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            setError(err.toString());
+        })
+    }, [refresh])
+
+    const resetInputField = () => {
+        setMessages("");
+    };
 
     const handleAddMessage = () => {
         axios.post(`messages/create/${newMessage}`)
         .then((res) => {
             console.log(res);
+            setRefresh(refresh + 1)
+            addNewMsg("")
+            
         })
         .catch((err) =>{
             console.log(err)
@@ -31,7 +53,12 @@ export default function ChatUI(){
                     Chat Log
                 </div>
                 <div className="sentMessages">
-                    Actual Messages
+                    {messages && messages.map((messages, index) => (
+                        <div key={`${messages}-${index}`}>
+                            <p>{messages}<br/></p>
+                        </div>
+                        
+                    ))}
                 </div>
                 <div> {/* Div for user input and Chat Button */}
                     <input 

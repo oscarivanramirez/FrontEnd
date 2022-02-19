@@ -25,6 +25,7 @@ div.chatTitle{
 div.sentMessages{
     width: 100%;
     height: 70vh;
+    flex-direction: column;
 }
 input.typing{
     height: 5vh;
