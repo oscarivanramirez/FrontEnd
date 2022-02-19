@@ -19,7 +19,15 @@ export default function CreateRoom(){
             </button>
             {state && 
             <Popup
-                
+                handleClose = {togglePopUp}
+                content = { <>
+                    <h3>Create Your New Room</h3>
+                    <input placeholder = 'Enter Your Room Name'></input>
+                    <br/>
+                    <input placeholder = 'Enter the genre'></input>
+                    <br/>
+                    </>
+                }
             />}
         </div>
     )

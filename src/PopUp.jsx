@@ -1,16 +1,13 @@
 import React from "react";
 
 export default function Popup({content, handleClose}){
-  
     return (
-    <div>
-      <div>
-        <button>x</button>
-        
-        <button>Submit</button>
-      </div>
-    </div>
-  );
+        <div>
+            <button onClick = {handleClose}>x</button>
+            {content}
+            <button onClick = {handleClose}>Submit</button>
 
+        </div>
+    );
 };
  
