@@ -8,7 +8,17 @@ export default function LoginSignup(){
 
     const [error, setError] = useState('');
 
+    /*New User*/
+
     const [newUser, setNewUser] = useState('');
+
+    const [newPW, setNewPW] = useState('');
+
+    /*SuccessSignUp*/
+    
+    const [signupSuccess, setSignupSuccess] = useState('')
+
+    /*Login Prev User*/
 
     const [userLogin, setUserLogin] = useState('');
 
@@ -28,10 +38,13 @@ export default function LoginSignup(){
     }, [refresh])
     
     const handleCreateUser = () =>{
-        axios.post(`users/create/${newUser}`)
+        axios.post(`users/create/${newUser}/${newPW}`)
             .then((res) => {
                 console.log(res);
                 setRefresh(refresh + 1);
+                setNewUser('');
+                setNewPW('');
+                setSignupSuccess('congrats '+ newUser + ' On Signing Up');
             })
             .catch((err) =>{
                 console.log(err)
@@ -54,13 +67,7 @@ export default function LoginSignup(){
 
     return(
         <div>
-            {error}
-            {/*users && 
-                <div>  
-                    {users[userLogin].userName}
-                </div>
-            */
-            }
+            {error || signupSuccess}
             <div>
                 <h1>
                     Login
@@ -92,17 +99,12 @@ export default function LoginSignup(){
                     value={newUser} 
                     onChange={(event) => setNewUser(event.target.value)}
                     placeholder={'Enter a UserName'}/>
-
+                <input
+                    value={newPW}
+                    onChange={(event) => setNewPW(event.target.value)}
+                    placeholder={'Enter a Unique PassWord'}
+                />
                 <button onClick={handleCreateUser}>Sign Up</button>
-
-                {/*<h4>
-                    Date of Birth  
-                </h4>
-                <input type="text"/>
-                <h4>
-                    Password
-                </h4>
-                <input type="text"/>*/}
             </div>
             
         </div>
