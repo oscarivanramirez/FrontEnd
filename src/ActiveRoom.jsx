@@ -1,11 +1,11 @@
 import React from "react"
 
-export default function ActiveRoom(){
+export default function ActiveRoom({roomName,numUsers}){
     return(
         <>
-            <h1>Jimmy</h1>
-            <h2>Welcome To My Stream</h2>
-            <h3>COD</h3>
+            <h1>{roomName}</h1>
+            <h3>{numUsers}</h3>
+            <h2>Streamer name</h2>
         </>
     )
 }
