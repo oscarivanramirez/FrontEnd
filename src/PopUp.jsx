@@ -7,7 +7,7 @@ export default function Popup({content, handleClose}){
             <div className="modelContent">
                 <button onClick = {handleClose}>x</button>
                 {content}
-                <button onClick = {handleClose}>Submit</button>
+                <button onClick ={handleClose}>Submit</button>
             </div>
             
         </div>

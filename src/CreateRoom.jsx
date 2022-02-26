@@ -2,8 +2,9 @@ import React from "react";
 import NavBar from "./NavBar";
 import { useState,useEffect } from 'react';
 import Popup from "./PopUp";
-export default function CreateRoom(){
+import axios from 'axios'
 
+export default function CreateRoom(){
     const [roomName, setRoomName] = useState('') //to retrieve new room name
     const [genre, setGenre] = useState('') //to retrieve genre of new room
     const [state, setState] = useState(false) //to determine if pop up to create a room is showing or not
@@ -12,19 +13,38 @@ export default function CreateRoom(){
         setState(!state);
     }
 
+    const handleCreateRoom = () =>{
+        axios.post(`rooms/create/${roomName}/${genre}`)
+            .then((res) => {
+                console.log(res);
+                setRoomName('');
+                setGenre('');
+                //{<Popup handleClose={togglePopUp}/>}
+            })
+            .catch((err) =>{
+                console.log(err)
+            })
+    }
+
     return(
         <div>
             <button onClick={togglePopUp}>
-                Create Room
+                Create New Room
             </button>
-            {state && 
+            {state &&
             <Popup
-                handleClose = {togglePopUp}
+                handleClose = {handleCreateRoom}
                 content = { <>
                     <h3>Create Your New Room</h3>
-                    <input placeholder = 'Enter Your Room Name'></input>
+                    <input 
+                        value={roomName}
+                        onChange={(event) => setRoomName(event.target.value)}
+                        placeholder = 'Enter Your Room Name'></input>
                     <br/>
-                    <input placeholder = 'Enter the genre'></input>
+                    <input 
+                        value={genre}
+                        onChange={(event) => setGenre(event.target.value)}
+                        placeholder = 'Enter the genre'></input>
                     <br/>
                     </>
                 }

@@ -44,7 +44,7 @@ export default function LoginSignup(){
                 setRefresh(refresh + 1);
                 setNewUser('');
                 setNewPW('');
-                setSignupSuccess('congrats '+ newUser + ' On Signing Up');
+                setSignupSuccess(`congrats ${newUser} On Signing Up`);
             })
             .catch((err) =>{
                 console.log(err)

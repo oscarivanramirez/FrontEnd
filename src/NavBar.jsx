@@ -17,8 +17,6 @@ export default function NavBar(){
         setSignUpState(!signUpState);
     }
 
-
-
     return(
         <div className="Header">
             <div className="logo">
