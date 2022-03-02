@@ -2,6 +2,7 @@ import React from "react"
 import './NavBar.css'
 import CreateRoom from "./CreateRoom"
 import Popup from "./PopUp";
+import axios from "axios";
 import { useState,useEffect } from 'react';
 
 export default function NavBar(){
@@ -16,6 +17,31 @@ export default function NavBar(){
     const toggleSignUpPopUp = () => {
         setSignUpState(!signUpState);
     }
+
+    /*New User*/
+    const [newUser, setNewUser] = useState('');
+
+    const [newPW, setNewPW] = useState('');
+
+    /*SuccessSignUp*/
+    //const [signupSuccess, setSignupSuccess] = useState('')
+
+    const handleCreateUser = () =>{
+        axios.post(`users/create/${newUser}/${newPW}`)
+            .then((res) => {
+                console.log(res);
+                //setRefresh(refresh + 1);
+                setNewUser('');
+                setNewPW('');
+                //setSignupSuccess(`congrats ${newUser} On Signing Up`);
+                setSignUpState(!signUpState);
+            })
+            .catch((err) =>{
+                console.log(err)
+                //setError(err.toString())
+            })
+    }
+
 
     return(
         <div className="Header">
@@ -32,10 +58,12 @@ export default function NavBar(){
                 <nav>
                     <ul>
                         <CreateRoom/>
-                        <li><a href='#' onClick={toggleLoginPopUp}>Log in</a>
+                        
+                        <li>
+                            <a href='#' onClick={toggleLoginPopUp}>Log in</a>
                             {loginState && 
                             <Popup
-                                handleClose = {toggleLoginPopUp}
+                                handleCloseX = {toggleLoginPopUp}
                                 content = { <>
                                     <h3>Login</h3>
                                     <input placeholder = 'Username'></input>
@@ -44,21 +72,31 @@ export default function NavBar(){
                                     <br/>
                                     </>
                                 }
+                                
                             />}
                         </li>
                         
-                        <li><a href='#' onClick={toggleSignUpPopUp}>Sign Up</a>
+                        <li>
+                            <a href='#' onClick={toggleSignUpPopUp}>Sign Up</a>
                             {signUpState && 
-                                <Popup
-                                    handleClose = {toggleSignUpPopUp}
-                                    content = { <>
-                                        <h3>Login</h3>
-                                        <input placeholder = 'New Username'></input>
-                                        <br/>
-                                        <input placeholder = 'New Password'></input>
-                                        <br/>
-                                        </>
-                                    }
+                            <Popup
+                                handleCloseX = {toggleSignUpPopUp}
+                                content = { <>
+                                    <h3>Sign Up</h3>
+                                    <br/>
+                                    <input 
+                                        value={newUser} 
+                                        onChange={(event) => setNewUser(event.target.value)}
+                                        placeholder={'Enter a UserName'}/>
+                                    <br/>
+                                    <input
+                                        value={newPW}
+                                        onChange={(event) => setNewPW(event.target.value)}
+                                        placeholder={'Enter a Unique PassWord'}/>
+                                    <br/>
+                                    </>
+                                }
+                                handleCloseS = {handleCreateUser}
                             />}
                         </li>
 
@@ -67,8 +105,6 @@ export default function NavBar(){
             </div>
 
         </div>
-        
-            
         
     )
 }

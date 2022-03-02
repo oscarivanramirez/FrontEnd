@@ -1,13 +1,13 @@
 import React from "react";
 import './PopUp.css'
 
-export default function Popup({content, handleClose}){
+export default function Popup({content, handleCloseX, handleCloseS}){
     return (
         <div className = "modal">
             <div className="modelContent">
-                <button onClick = {handleClose}>x</button>
+                <button onClick = {handleCloseX}>x</button>
                 {content}
-                <button onClick ={handleClose}>Submit</button>
+                <button onClick = {handleCloseS}>Submit</button>
             </div>
             
         </div>

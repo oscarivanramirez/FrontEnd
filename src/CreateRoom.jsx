@@ -19,7 +19,7 @@ export default function CreateRoom(){
                 console.log(res);
                 setRoomName('');
                 setGenre('');
-                //{<Popup handleClose={togglePopUp}/>}
+                setState(!state);
             })
             .catch((err) =>{
                 console.log(err)
@@ -33,7 +33,7 @@ export default function CreateRoom(){
             </button>
             {state &&
             <Popup
-                handleClose = {handleCreateRoom}
+                handleCloseX = {togglePopUp}
                 content = { <>
                     <h3>Create Your New Room</h3>
                     <input 
@@ -48,6 +48,7 @@ export default function CreateRoom(){
                     <br/>
                     </>
                 }
+                handleCloseS = {handleCreateRoom}
             />}
         </div>
     )
