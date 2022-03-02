@@ -3,7 +3,8 @@ import Nav from "./NavBar"
 import './HomeScreen.css'
 import AR from "./ActiveRoom"
 import axios from "axios";
-import { render } from "@testing-library/react";
+import {Link,useParams} from 'react-router-dom';
+
 //import Chat from './ChatUI'
 
 export default function HomeScreen(){
@@ -35,13 +36,20 @@ export default function HomeScreen(){
             <div className="currRooms">
                 {
                     rooms && rooms.map((room, index) => (
-                    <div className={`room${index+1}`}>
-                        <AR 
-                            key={`${room}-${index}`}
-                            roomName={room.roomName}
-                            numUsers={room.num_users}
-                        />
-                    </div>
+                    <Link to={`/ChatUI/${room.roomName}`}>
+                        <div className={`room${index+1}`}>
+                            <AR 
+                                key={`${room}-${index}`}
+                                roomName={room.roomName}
+                                numUsers={room.num_users}
+                            />
+                            {/*<Link to={"/ChatUI"}></Link> */}
+                            
+                            
+                        </div>
+                    </Link>
+                        
+                    
 
                     
                 ))}
