@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './ChatUI.css'
 import axios from "axios";
+import {useParams} from 'react-router-dom';
 
 export default function ChatUI(){
 
@@ -8,9 +9,10 @@ export default function ChatUI(){
     const [error, setError] = useState('');
     const [messages, setMessages] = useState(undefined);
     const [refresh, setRefresh] = useState(0);
+    let {roomname} = useParams();
 
     useEffect(() => {
-        axios.get('/messages/list')
+        axios.get(`/messages/${roomname}/list`)
         .then((res) => {
             if(res.data){
                 setMessages(res.data);
@@ -27,7 +29,7 @@ export default function ChatUI(){
     };
 
     const handleAddMessage = () => {
-        axios.post(`messages/create/${newMessage}`)
+        axios.post(`https://swejol.herokuapp.com/messages/create/${roomname}/${newMessage}`)
         .then((res) => {
             console.log(res);
             setRefresh(refresh + 1)
@@ -46,7 +48,7 @@ export default function ChatUI(){
         /* DIVS INSIDE MAIN DIV */
         <div>
             <div className="chatVideo">
-                
+                {roomname}
             </div>
             <div className="chatLeft">
                 <div className="chatTitle">
