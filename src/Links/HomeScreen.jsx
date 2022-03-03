@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Nav from "./NavBar"
+import Nav from "../NavBar"
 import './HomeScreen.css'
-import AR from "./ActiveRoom"
+import AR from "../ActiveRoom"
 import axios from "axios";
 import {Link,useParams} from 'react-router-dom';
 

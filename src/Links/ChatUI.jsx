@@ -46,7 +46,7 @@ export default function ChatUI(){
 
         /* setting the properties to the main <div> of the chat box which dictates size of chat box */
         /* DIVS INSIDE MAIN DIV */
-        <div>
+        <div className="chat">
             <div className="chatVideo">
                 {roomname}
             </div>

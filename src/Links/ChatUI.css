@@ -1,4 +1,5 @@
-div{
+
+div.chat{
     display: flex;
     text-align: center;
     /*align-items: center;*/
