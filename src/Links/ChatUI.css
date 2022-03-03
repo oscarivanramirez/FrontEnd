@@ -9,19 +9,19 @@ div.chat{
 div.chatVideo{
     width:70vw;
     height: 80vh;
-    border: 1px solid black;
+    border: 1px solid orange;
     align-self: center;
 }
 div.chatLeft{
     width: 30vw;
     height: 80vh;
     margin-left: auto;
-    border: 1px solid black;
+    border: 1px solid red;
     flex-direction: column;
     align-self: center;
 }
 div.chatTitle{
-    border: 1px solid black;
+    border: 1px solid blue;
 }
 div.sentMessages{
     width: 100%;

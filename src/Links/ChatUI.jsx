@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
+import { useState, useEffect } from "react";
 import './ChatUI.css'
 import axios from "axios";
 import {useParams} from 'react-router-dom';
+import Webcam from '../Webcam';
 
 export default function ChatUI(){
 
@@ -49,6 +51,7 @@ export default function ChatUI(){
         <div className="chat">
             <div className="chatVideo">
                 {roomname}
+                <Webcam/>
             </div>
             <div className="chatLeft">
                 <div className="chatTitle">
