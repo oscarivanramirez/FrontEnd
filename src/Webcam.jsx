@@ -11,7 +11,7 @@ export default function Webcam(){
 
     const getVideo = () => {
     navigator.mediaDevices
-      .getUserMedia()
+      .getUserMedia({ video: { width: 500 } })
       .then(stream => {
         let video = videoRef.current;
         video.srcObject = stream;
