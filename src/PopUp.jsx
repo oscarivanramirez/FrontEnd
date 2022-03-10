@@ -13,4 +13,3 @@ export default function Popup({content, handleCloseX, handleCloseS}){
         </div>
     );
 };
- 

@@ -42,7 +42,6 @@ export default function NavBar(){
             })
     }
 
-
     return(
         <div className="Header">
             <div className="logo">
