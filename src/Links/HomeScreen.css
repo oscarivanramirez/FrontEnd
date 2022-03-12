@@ -30,11 +30,20 @@
   grid-area: room5; 
 }
 div.mainContent{
-  border: 3px solid black;
+  border: 1px solid black;
   height: 45.6vh;
+  width: 99.8vw;
   background-color: rgba(0, 0, 0, 0.9)
 
 }
+
+.mainContentBackground{
+  height: 45.6vh;
+  width: 99.92vw;
+  z-index: 0;
+  position: absolute;
+}
+
 div.currRooms{
   border: 3px solid pink;
   height: 30vh;

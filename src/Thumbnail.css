@@ -1,3 +1,7 @@
-.size{
-    display: flex;
+.contentWrapper{
+    height: 45.6vh;
+    border: 1px solid green;
+}
+.reactPlayer{
+    border: 2px solid aqua;
 }

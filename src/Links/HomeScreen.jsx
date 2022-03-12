@@ -8,6 +8,8 @@ import {Link,useParams} from 'react-router-dom';
 import { useSession } from "../UserSession";
 //import Chat from './ChatUI'
 import Thumbnail from "../Thumbnail";
+import logo from '../images/purpleflare.gif';
+
 
 export default function HomeScreen(){
 
@@ -38,6 +40,7 @@ export default function HomeScreen(){
             
             
             <div className="mainContent">
+                <img className="mainContentBackground" src={logo} alt="loading..." />
                 <Thumbnail/>
             </div>
             <div className="currRooms">
