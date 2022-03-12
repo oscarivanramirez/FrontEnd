@@ -7,6 +7,7 @@ import {Link,useParams} from 'react-router-dom';
 
 import { useSession } from "../UserSession";
 //import Chat from './ChatUI'
+import Thumbnail from "../Thumbnail";
 
 export default function HomeScreen(){
 
@@ -37,12 +38,13 @@ export default function HomeScreen(){
             
             
             <div className="mainContent">
-                
+                <Thumbnail/>
             </div>
             <div className="currRooms">
                 {
                     rooms && rooms.map((room, index) => (
                     <Link to={`/ChatUI/${room.roomName}`}>
+                    
                         <div className={`room${index+1}`}>
                             <AR 
                                 key={`${room}`}
@@ -62,7 +64,7 @@ export default function HomeScreen(){
             </div>
             <div className="genres">
                 <div className="genre1">
-
+                        lol
                 </div>
                 <div className="genre2">
 
