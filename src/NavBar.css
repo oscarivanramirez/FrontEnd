@@ -45,5 +45,6 @@ nav{
     align-items: center;
     grid-area: loginSignup;
     display: flex; 
+    z-index: 1;
 }
   
