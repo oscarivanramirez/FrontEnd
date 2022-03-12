@@ -32,9 +32,9 @@ export default function HomeScreen(){
         
         <div>
             <Nav/>
-            <p>
-                {session.state}
-            </p>
+            
+            {session.state}
+            
             
             <div className="mainContent">
                 

@@ -1,18 +1,21 @@
 .modal {
-    border: 1px solid blue;
-    position: fixed;
-    z-index: 1;
     background-color: rgba(1, 1, 1, 0.5);
-    width: 100vw;
-    height: 100vh;
-    margin-left: -70%;
-    margin-top: -2.8%;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .modelContent {
+    
     background-color: wheat;
-    margin-top: 17%;
+    margin-top: 0;
     margin-left: 40%;
     margin-right: 40%;
     border: 1px solid yellow;

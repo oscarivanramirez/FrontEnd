@@ -1,6 +1,11 @@
 
 li{
     list-style: none;
+    transition: all 0.4s;
+}
+
+li:hover{
+    transform: scale(1.2);
 }
 
 a{
@@ -14,7 +19,9 @@ ul{
 nav{
     display: flex;
 }
-.Header{  display: grid;
+.Header{  
+    background-color: #6441a5;
+    display: grid;
     grid-template-columns: 25% 45% 30%;
     grid-template-rows: 1fr;
     grid-auto-columns: 1fr;
@@ -30,11 +37,17 @@ nav{
 }
 
 .browse{ 
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
     grid-area: browse; 
     display: flex;
 }
 
 .loginSignup{ 
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
     grid-area: loginSignup;
     display: flex; 
 }

@@ -5,6 +5,7 @@ import axios from "axios";
 import {useParams} from 'react-router-dom';
 import Webcam from '../Webcam';
 import { useSession } from '../UserSession';
+import NavBar from '../NavBar';
 
 export default function ChatUI(){
 
@@ -50,6 +51,8 @@ export default function ChatUI(){
 
         /* setting the properties to the main <div> of the chat box which dictates size of chat box */
         /* DIVS INSIDE MAIN DIV */
+        <>
+        <NavBar/>
         <div className="chat">
             <div className="chatVideo">
                 {roomname}
@@ -81,6 +84,7 @@ export default function ChatUI(){
             </div>
 
         </div>
+        </>
         
 
     )
