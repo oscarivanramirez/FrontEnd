@@ -7,16 +7,19 @@ import ChatUI from "./Links/ChatUI";
 import HomeScreen from "./Links/HomeScreen";
 //import LoginSignup from "./LoginSignup";
 import Webcam from "./Webcam.jsx";
+import {SessionProvider} from './UserSession'
 
 export default function TeleStreamApp(){
 
     return(
-        <Router>
-            <Routes>
-                <Route path='/' element={<HomeScreen/>}/>
-                <Route path='/ChatUI/:roomname' element={<ChatUI/>}/>
-            </Routes>
-        </Router>
+        <SessionProvider>
+            <Router>
+                <Routes>
+                    <Route path='/' element={<HomeScreen/>}/>
+                    <Route path='/ChatUI/:roomname' element={<ChatUI/>}/>
+                </Routes>
+            </Router>
+        </SessionProvider>
         
     )
 }

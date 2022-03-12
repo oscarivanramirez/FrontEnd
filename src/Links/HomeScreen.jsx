@@ -5,6 +5,7 @@ import AR from "../ActiveRoom"
 import axios from "axios";
 import {Link,useParams} from 'react-router-dom';
 
+import { useSession } from "../UserSession";
 //import Chat from './ChatUI'
 
 export default function HomeScreen(){
@@ -12,6 +13,7 @@ export default function HomeScreen(){
     const [rooms, setRooms] = useState(undefined);
     const [error, setError] = useState('');
     const [refresh, setRefresh] = useState(0);
+    const session = useSession(); // Has access to the value
 
     useEffect(() => {
         axios.get('/rooms/list')
@@ -30,6 +32,10 @@ export default function HomeScreen(){
         
         <div>
             <Nav/>
+            <p>
+                {session.state}
+            </p>
+            
             <div className="mainContent">
                 
             </div>
@@ -39,7 +45,7 @@ export default function HomeScreen(){
                     <Link to={`/ChatUI/${room.roomName}`}>
                         <div className={`room${index+1}`}>
                             <AR 
-                                key={`${room}-${index}`}
+                                key={`${room}`}
                                 roomName={room.roomName}
                                 numUsers={room.num_users}
                             />

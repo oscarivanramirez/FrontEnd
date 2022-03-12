@@ -2,12 +2,12 @@ import React, {useReducer, createContext, useContext} from 'react';
 
 export const SessionContext = createContext();
 
-const SessionReducer =(state, id) => {
-    return {sessionID: id,}
+const SessionReducer =(name) => {
+    return name
 }
 
 export const SessionProvider = ({children}) => {
-    const [state, dispatch] = useReducer(SessionReducer, {sessionID: 0});
+    const [state, dispatch] = useReducer(SessionReducer, "");
 
     let value = {state, dispatch}
     return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>

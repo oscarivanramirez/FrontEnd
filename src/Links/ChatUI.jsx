@@ -4,6 +4,7 @@ import './ChatUI.css'
 import axios from "axios";
 import {useParams} from 'react-router-dom';
 import Webcam from '../Webcam';
+import { useSession } from '../UserSession';
 
 export default function ChatUI(){
 
@@ -11,6 +12,7 @@ export default function ChatUI(){
     const [error, setError] = useState('');
     const [messages, setMessages] = useState(undefined);
     const [refresh, setRefresh] = useState(0);
+    const session = useSession();
     let {roomname} = useParams();
 
     useEffect(() => {
@@ -51,6 +53,7 @@ export default function ChatUI(){
         <div className="chat">
             <div className="chatVideo">
                 {roomname}
+                {session.state.name}
                 <Webcam/>
             </div>
             <div className="chatLeft">
