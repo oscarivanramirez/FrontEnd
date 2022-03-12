@@ -42,6 +42,7 @@ div.mainContent{
   width: 99.92vw;
   z-index: 0;
   position: absolute;
+  opacity: 0.5;
 }
 
 div.currRooms{
