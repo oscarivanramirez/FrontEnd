@@ -1,11 +1,6 @@
 
 li{
     list-style: none;
-    transition: all 0.4s;
-}
-
-li:hover{
-    transform: scale(1.2);
 }
 
 a{
