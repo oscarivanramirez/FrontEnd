@@ -33,8 +33,7 @@ div.mainContent{
   border: 1px solid black;
   height: 45.6vh;
   width: 99.8vw;
-  background-color: rgba(0, 0, 0, 0.9)
-
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .mainContentBackground{
@@ -69,6 +68,7 @@ div.genres{
 .genre3 { grid-area: genre3; }
 
 .genre4 { grid-area: genre4; }
+
 .genre1,.genre2,.genre3,.genre4{
   border: 1px solid purple;
 }
