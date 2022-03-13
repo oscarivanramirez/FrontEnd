@@ -5,6 +5,8 @@ import Popup from "./PopUp";
 import axios from "axios";
 import { useState,useEffect } from 'react';
 import {useSession} from './UserSession'
+import wave from './images/purplewave.gif';
+
 
 export default function NavBar(){
     
@@ -59,7 +61,9 @@ export default function NavBar(){
             <div className="loginSignup">
                 <nav>
                     <ul>
-                        <CreateRoom/>
+                        <li>
+                            <CreateRoom/>
+                        </li>
                         
                         <li>
                             <a href='#' onClick={toggleLoginPopUp}>Log in</a>

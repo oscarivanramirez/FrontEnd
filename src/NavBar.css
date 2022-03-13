@@ -45,6 +45,10 @@ nav{
     align-items: center;
     grid-area: loginSignup;
     display: flex; 
-    z-index: 1;
 }
   
+.wave{
+    height: 100px;
+    z-index: 1;
+    position: relative;
+}

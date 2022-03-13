@@ -29,12 +29,28 @@ export default function Thumbnail() {
             playing={true}
             height={"45.6vh"}
             width={"80.6vh"}
-        />
+        />,
+        <ReactPlayer 
+        className = {"reactPlayer"}
+        url={"https://youtu.be/WJw_PtZpnnQ"}
+        volume={0.00}
+        playing={true}
+        height={"45.6vh"}
+        width={"80.6vh"}
+        />,
+        <ReactPlayer 
+        className = {"reactPlayer"}
+        url={" https://youtu.be/TEwuxri8XJQ"}
+        volume={0.00}
+        playing={true}
+        height={"45.6vh"}
+        width={"80.6vh"}
+         />
     ]
 
   return (
     <div className="contentWrapper">
-        <Carousel slides={slides}/>
+        <Carousel slides={slides} arrows={true}/>
     </div>  
    
   );

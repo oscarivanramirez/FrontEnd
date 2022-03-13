@@ -8,7 +8,7 @@ import {Link,useParams} from 'react-router-dom';
 import { useSession } from "../UserSession";
 //import Chat from './ChatUI'
 import Thumbnail from "../Thumbnail";
-import logo from '../images/purpleflare.gif';
+import flare from '../images/purpleflare.gif';
 
 
 export default function HomeScreen(){
@@ -40,17 +40,16 @@ export default function HomeScreen(){
             
             
             <div className="mainContent">
-                <img className="mainContentBackground" src={logo} alt="loading..." />
+                <img className="mainContentBackground" src={flare} alt="loading..." />
                 <Thumbnail/>
             </div>
             <div className="currRooms">
+                
                 {
                     rooms && rooms.map((room, index) => (
                     <Link to={`/ChatUI/${room.roomName}`}>
-                    
                         <div className={`room${index+1}`}>
-                            <AR 
-                                key={`${room}`}
+                            <AR                                key={`${room}`}
                                 roomName={room.roomName}
                                 numUsers={room.num_users}
                             />

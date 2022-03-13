@@ -4,4 +4,6 @@
 }
 .reactPlayer{
     border: 2px solid aqua;
+    pointer-events: none;
 }
+
