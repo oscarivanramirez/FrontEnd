@@ -43,6 +43,7 @@ export default function HomeScreen(){
                 <img className="mainContentBackground" src={flare} alt="loading..." />
                 <Thumbnail/>
             </div>
+
             <div className="currRooms">
                 
                 {
@@ -52,18 +53,17 @@ export default function HomeScreen(){
                             <AR                                key={`${room}`}
                                 roomName={room.roomName}
                                 numUsers={room.num_users}
+                                genre={room.genre}
                             />
                             {/*<Link to={"/ChatUI"}></Link> */}
                             
                             
                         </div>
                     </Link>
-                        
-                    
-
                     
                 ))}
             </div>
+
             <div className="genres">
                 <div className="genre1">
                         lol

@@ -29,12 +29,12 @@
 .room5{ 
   grid-area: room5; 
 }
+
 div.mainContent{
   border: 1px solid black;
   height: 45.6vh;
   width: 99.8vw;
-  background-color: rgba(0, 0, 0, 0.9)
-
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .mainContentBackground{
@@ -46,9 +46,11 @@ div.mainContent{
 }
 
 div.currRooms{
+  align-items: center;
   border: 3px solid pink;
   height: 30vh;
 }
+
 .genres {  display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 1fr;
@@ -69,6 +71,7 @@ div.genres{
 .genre3 { grid-area: genre3; }
 
 .genre4 { grid-area: genre4; }
+
 .genre1,.genre2,.genre3,.genre4{
   border: 1px solid purple;
 }

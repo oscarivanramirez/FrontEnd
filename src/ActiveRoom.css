@@ -1,0 +1,43 @@
+.main{
+    display: flex;
+    height: 20vh;
+}
+
+.main .content{
+    width: 520px;
+    border: 1px black;
+    background: black;
+}
+
+.main .side{
+    display: grid;
+    grid-template-areas: "pic username" "pic roomname" "pic watchers" "pic tag";
+    width: 220px;
+    color: black;
+}
+
+.main .side .profile{
+    grid-area: pic;
+    width: 32px;
+    height: 32px;
+    background: blue;;
+    border-radius: 50%;
+}
+.main .side .userName{
+    grid-area: username;
+    color: #6441a5;
+}
+.main .side .roomName{
+    grid-area: roomname;
+    color: #6441a5;
+}
+
+.main .side .watchers{
+    grid-area: watchers;
+    color: black;
+}
+
+.main .side .genre{
+    grid-area: tag;
+    color: black;
+}
