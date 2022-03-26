@@ -12,8 +12,11 @@
 .main .side{
     display: grid;
     grid-template-areas: "pic username" "pic roomname" "pic watchers" "pic tag";
-    width: 220px;
+    grid-template-columns: 40px auto;
+    padding: 10px;
+    width: 300px;
     color: black;
+    justify-content: center;   
 }
 
 .main .side .profile{

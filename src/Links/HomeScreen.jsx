@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "../NavBar"
 import './HomeScreen.css'
 import AR from "../ActiveRoom"
+import Genre from "../Genre";
 import axios from "axios";
 import {Link,useParams} from 'react-router-dom';
 
@@ -66,16 +67,60 @@ export default function HomeScreen(){
 
             <div className="genres">
                 <div className="genre1">
-                        lol
+                    <Genre
+                        name={'Just Chatting'}
+                        viewers={394}
+                        genre={'IRL'}
+                    />
                 </div>
                 <div className="genre2">
-
+                    <Genre
+                        name={'Fortnite'}
+                        viewers={126}
+                        genre={'Shooter'}
+                    />
                 </div>
                 <div className="genre3">
-
+                    <Genre
+                        name={'Valorant'}
+                        viewers={193}
+                        genre={'FPS'}
+                    />
                 </div>
                 <div className="genre4">
-
+                    <Genre
+                        name={'Elden RIng'}
+                        viewers={108}
+                        genre={'RPG'}
+                    />
+                </div>
+                <div className="genre5">
+                    <Genre
+                        name={'Just Chatting'}
+                        viewers={394}
+                        genre={'IRL'}
+                    />
+                </div>
+                <div className="genre6">
+                    <Genre
+                        name={'Fortnite'}
+                        viewers={126}
+                        genre={'Shooter'}
+                    />
+                </div>
+                <div className="genre7">
+                    <Genre
+                        name={'Valorant'}
+                        viewers={193}
+                        genre={'FPS'}
+                    />
+                </div>
+                <div className="genre8">
+                    <Genre
+                        name={'Elden RIng'}
+                        viewers={108}
+                        genre={'RPG'}
+                    />
                 </div>
             </div>
         </div>

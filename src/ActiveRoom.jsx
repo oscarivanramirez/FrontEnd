@@ -6,7 +6,7 @@ export default function ActiveRoom({roomName,numUsers, genre}){
         <>
             <div className="main">
                 <div className="content">
-
+                    Hello
                 </div>
 
                 <div className="side">
