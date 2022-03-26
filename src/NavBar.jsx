@@ -121,6 +121,7 @@ export default function NavBar(){
                             <Popup
                                 handleCloseX = {toggleLoginPopUp}
                                 content = { <>
+                                    <h3>Log in</h3>
                                     <br/>
                                     <input 
                                         value={user} 

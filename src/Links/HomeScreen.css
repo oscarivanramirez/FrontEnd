@@ -8,8 +8,21 @@
     "room1 room2 room3 room4 room5";
 }
 .room1,.room2,.room3,.room4,.room5{
-  border: 1px solid orange;
+  border: 1px solid red;  bottom: 100px;
+  position: relative;
+  top: 0;
+  transition: ease-in-out 0s;
+
 }
+
+.room1:hover,.room2:hover,.room3:hover,.room4:hover,.room5:hover{
+  border: 1px solid purple;
+  background-color: rgba(190, 111, 227, 0.9);
+  top: -10px;
+  left: 10px;
+  box-shadow: -10px 10px 15px 5px rebeccapurple;
+}
+
 .room1{ 
   grid-area: room1; 
 }
