@@ -7,6 +7,7 @@ import Webcam from '../Webcam';
 import { useSession } from '../UserSession';
 import NavBar from '../NavBar';
 import ReactPlayer from 'react-player';
+import WebcamHandler from '../WebcamHandler';
 
 export default function ChatUI(){
 
@@ -14,6 +15,9 @@ export default function ChatUI(){
     const [error, setError] = useState('');
     const [messages, setMessages] = useState(undefined);
     const [refresh, setRefresh] = useState(0);
+
+    const [webcamState, setWebcamState] = useState(false) //
+
     const session = useSession();
     let {roomname} = useParams();
 
@@ -39,14 +43,21 @@ export default function ChatUI(){
         .then((res) => {
             console.log(res);
             setRefresh(refresh + 1)
-            addNewMsg("")
+            addNewMsg("");
             
         })
         .catch((err) =>{
-            console.log(err)
-            setError(err.toString())
+            console.log(err);
+            setError(err.toString());
         })
-    }
+
+    };
+
+    const toggleWebcam = () => {
+        setWebcamState(!webcamState);
+    };
+
+    
     return(
                                        /* MAIN DIV */
 
@@ -58,7 +69,17 @@ export default function ChatUI(){
             <div className="chatVideo">
                 {roomname}
                 {session.state.name}
-                <Webcam/>
+                <button href='#' onClick={toggleWebcam}>ON/OFF Camera</button>
+                {webcamState &&
+                    <WebcamHandler
+                        content ={ 
+                            <>
+                            <Webcam
+                                cameraState = {webcamState}
+                            />
+                            </>
+                        }
+                />}
                 <ReactPlayer 
                     className="stream"
                     url={"https://youtu.be/rqNZTZBK3gs"}
