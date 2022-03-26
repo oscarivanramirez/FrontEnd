@@ -32,3 +32,10 @@ input.typing{
     height: 5vh;
     width: 100%;
 }
+
+.stream {
+    pointer-events: none;
+    z-index: 0;
+    position: absolute;
+    display: flex;
+}

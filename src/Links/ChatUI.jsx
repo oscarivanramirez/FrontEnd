@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom';
 import Webcam from '../Webcam';
 import { useSession } from '../UserSession';
 import NavBar from '../NavBar';
+import ReactPlayer from 'react-player';
 
 export default function ChatUI(){
 
@@ -58,6 +59,15 @@ export default function ChatUI(){
                 {roomname}
                 {session.state.name}
                 <Webcam/>
+                <ReactPlayer 
+                    className="stream"
+                    url={"https://youtu.be/rqNZTZBK3gs"}
+                    volume={0.00}
+                    playing={true}
+                    height={"77.2vh"}
+                    width={"70vw"}
+                />
+
             </div>
             <div className="chatLeft">
                 <div className="chatTitle">
