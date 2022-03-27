@@ -10,6 +10,7 @@ import { useSession } from "../UserSession";
 //import Chat from './ChatUI'
 import Thumbnail from "../Thumbnail";
 import flare from '../images/purpleflare.gif';
+import purplecity from '../images/purplecity.gif'
 
 
 export default function HomeScreen(){
@@ -35,6 +36,8 @@ export default function HomeScreen(){
     return(
         
         <div>
+            <img className="homeBackground" src={purplecity} alt="loading..." />
+
             <Nav/>
             
             {session.state}

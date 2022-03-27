@@ -8,9 +8,20 @@ div.gmain div.gside{
     display: grid;
     flex-direction: column;
     grid-template-areas: "pic pic" "username ." "roomname ." "watchers ." "tag .";
-    color: black;
+    color: rgb(255, 191, 0);
     justify-content: center;
-    
+    background-color: rgba(45, 18, 54, 0.75);
+    width: 165px;
+    position: relative;
+    transition: ease-in-out 0s;
+}
+
+div.gside:hover{
+    border: 0px solid purple;
+    background-color: rgba(190, 111, 227, 0.9);
+    top: -10px;
+    left: 10px;
+    box-shadow: -10px 10px 15px 5px rebeccapurple;
 }
 
 div.gmain div.gside div.gprofile{
@@ -21,19 +32,19 @@ div.gmain div.gside div.gprofile{
 }
 div.gmain div.gside div.guserName{
     grid-area: username;
-    color: #6441a5;
+    color: green;
 }
 div.gmain div.gside div.groomName{
     grid-area: roomname;
-    color: #6441a5;
+    color: rgb(255, 191, 0);
 }
 
 div.gmain div.gside div.gwatchers{
     grid-area: watchers;
-    color: black;
+    color: rgb(255, 191, 0);
 }
 
 div.gmain div.gside div.ggenre{
     grid-area: tag;
-    color: black;
+    color: rgb(255, 191, 0);
 }

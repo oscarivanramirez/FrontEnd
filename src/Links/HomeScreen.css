@@ -6,17 +6,20 @@
   grid-auto-flow: row dense;
   grid-template-areas:
     "room1 room2 room3 room4 room5";
+  
 }
 .room1,.room2,.room3,.room4,.room5{
-  border: 1px solid red;  bottom: 100px;
+  border: 0px solid red;  bottom: 100px;
   position: relative;
   top: 0;
   transition: ease-in-out 0s;
+  color: rgb(255, 191, 0);
+  background-color: rgba(45, 18, 54, 0.75);
 
 }
 
 .room1:hover,.room2:hover,.room3:hover,.room4:hover,.room5:hover{
-  border: 1px solid purple;
+  border: 0px solid purple;
   background-color: rgba(190, 111, 227, 0.9);
   top: -10px;
   left: 10px;
@@ -25,6 +28,7 @@
 
 .room1{ 
   grid-area: room1; 
+
 }
 
 .room2{ 
@@ -44,7 +48,7 @@
 }
 
 div.mainContent{
-  border: 1px solid black;
+  border: 0px solid black;
   height: 45.6vh;
   width: 99.8vw;
   background-color: rgba(0, 0, 0, 0.9);
@@ -60,7 +64,7 @@ div.mainContent{
 
 div.currRooms{
   align-items: center;
-  border: 3px solid pink;
+  border: 0px solid pink;
   height: 30vh;
 }
 
@@ -74,8 +78,9 @@ div.currRooms{
     "genre1 genre2 genre3 genre4 genre5 genre6 genre7 genre8";
 }
 div.genres{
-  border: 3px solid green;
+  border: 0px solid green;
   height: 30vh;
+  color: aqua;
 }
 .genre1 { grid-area: genre1; }
 
@@ -94,8 +99,15 @@ div.genres{
 .genre8 { grid-area: genre8; }
 
 .genre1,.genre2,.genre3,.genre4, .genre5,.genre6,.genre7,.genre8{
-  border: 1px solid purple;
+  border: 0px solid purple;
+  color: aqua;
 }
 
-
+.homeBackground{
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  width: 100vw;
+  height: 140vh;
+}
   

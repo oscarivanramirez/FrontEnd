@@ -5,8 +5,8 @@
 
 .main .content{
     width: 520px;
-    border: 1px black;
-    background: black;
+    border: 0px black;
+    background: black;  
 }
 
 .main .side{
@@ -15,7 +15,7 @@
     grid-template-columns: 40px auto;
     padding: 10px;
     width: 300px;
-    color: black;
+    color: rgb(255, 191, 0);
     justify-content: center;   
 }
 
@@ -28,20 +28,20 @@
 }
 .main .side .userName{
     grid-area: username;
-    color: #6441a5;
+    color: rgb(255, 191, 0);
 }
 .main .side .roomName{
     grid-area: roomname;
-    color: #6441a5;
+    color: rgb(255, 191, 0);
 }
 
 .main .side .watchers{
     grid-area: watchers;
-    color: black;
+    color: rgb(255, 191, 0);
 }
 
 .main .side .genre{
     grid-area: tag;
-    color: black;
+    color: rgb(255, 191, 0);
 }
 

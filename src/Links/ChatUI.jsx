@@ -8,6 +8,7 @@ import { useSession } from '../UserSession';
 import NavBar from '../NavBar';
 import ReactPlayer from 'react-player';
 import WebcamHandler from '../WebcamHandler';
+import purplecity from '../images/purplecity.gif'
 
 export default function ChatUI(){
 
@@ -64,6 +65,7 @@ export default function ChatUI(){
         /* setting the properties to the main <div> of the chat box which dictates size of chat box */
         /* DIVS INSIDE MAIN DIV */
         <>
+        <img className="streamBackground" src={purplecity} alt="loading..." />
         <NavBar/>
         <div className="chat">
             <div className="chatVideo">

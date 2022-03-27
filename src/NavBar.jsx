@@ -5,6 +5,7 @@ import Popup from "./PopUp";
 import axios from "axios";
 import { useState,useEffect } from 'react';
 import {useSession} from './UserSession'
+import purplecity from './images/purplecity.gif';
 
 export default function NavBar(){
     
