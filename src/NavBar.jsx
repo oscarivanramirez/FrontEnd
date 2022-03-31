@@ -5,13 +5,14 @@ import Popup from "./PopUp";
 import axios from "axios";
 import { useState,useEffect } from 'react';
 import {useSession} from './UserSession'
+import { Link } from "react-router-dom";
 import purplecity from './images/purplecity.gif';
 
 export default function NavBar(){
     
     const [loginState, setLoginState] = useState(false) //to determine if pop up to create a room is showing or not
     const [signUpState, setSignUpState] = useState(false)
-    const session=useSession();
+    const session = useSession();
     /* User who already has account*/
     const [user, setUser] = useState('');
     const [PW, setPW] = useState('');
@@ -38,7 +39,7 @@ export default function NavBar(){
             .then((res) => {
                 console.log(res);
                 //setRefresh(refresh + 1);
-                session.dispatch(`${newUser}`);
+                session.setSession(`${newUser}`);
                 setNewUser('');
                 setNewPW('');
                 //setSignupSuccess(`congrats ${newUser} On Signing Up`);
@@ -62,6 +63,16 @@ export default function NavBar(){
             setError(err.toString());
         })
     }, [])
+
+    useEffect(() => {
+        const data = localStorage.getItem("SessionInfo");
+        session.setSession(JSON.parse(data));
+        console.log(session.name)
+    },[])
+
+    useEffect(() => {
+        localStorage.setItem("SessionInfo",JSON.stringify(session.name))
+    },[session.name])
     /*
     useEffect(() => {
         const handleFindUser = () => {
@@ -86,12 +97,14 @@ export default function NavBar(){
         axios.get(`https://swejol.herokuapp.com/users/find/${user}/${PW}`)
         .then((res) => {
             console.log(res);
+            //console.log(res.data);
+            //console.log(res.data[0]);
             //setRefresh(refresh + 1);
-            session.dispatch(`${user}`);
+            session.setSession(res.data[0]);
             setUser('');
             setPW('');
             //setSignupSuccess(`congrats ${newUser} On Signing Up`);
-            setLoginState(!signUpState);
+            setLoginState(!setLoginState);
         })
         .catch((err) =>{
             console.log(err)
@@ -102,9 +115,12 @@ export default function NavBar(){
 
     return(
         <div className="Header">
-            <div className="logo">
-                <h1><a href="#">TeleStream</a></h1>
-            </div>
+            <Link to={'/'}>
+                <div className="logo">
+                    <h1>TeleStream</h1>
+                </div>
+            </Link>
+            
             <div className="browse">
                 <input type="text"/>
                 <button>
