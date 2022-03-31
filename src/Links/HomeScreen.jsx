@@ -72,7 +72,6 @@ export default function HomeScreen(){
 
             <div className="genres">
                 <div className="genre1">
-                    {session.name.userName}
                     <Genre
                         name={'Just Chatting'}
                         viewers={394}
