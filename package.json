@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "Access-Control-Allow-Origin": "*",
-  "proxy": "https://swejol.herokuapp.com/",
+  "proxy": "http://localhost:3000/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
