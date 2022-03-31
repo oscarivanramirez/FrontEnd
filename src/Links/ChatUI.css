@@ -33,7 +33,9 @@ div.sentMessages{
     flex-direction: column;
     background-color: rgba(46, 12, 58, 0.6);
     padding-top: 12.5px;
+    overflow: auto;
 }
+
 input.typing{
     height: 5vh;
     width: 100%;

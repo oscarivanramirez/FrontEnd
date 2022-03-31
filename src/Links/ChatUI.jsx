@@ -9,6 +9,7 @@ import NavBar from '../NavBar';
 import ReactPlayer from 'react-player';
 import WebcamHandler from '../WebcamHandler';
 import purplecity from '../images/purplecity.gif'
+import { useRef } from 'react/cjs/react.production.min';
 
 export default function ChatUI(){
 
@@ -58,6 +59,16 @@ export default function ChatUI(){
         setWebcamState(!webcamState);
     };
 
+    const messageEnd = React.createRef()
+
+    const scroolToBottom = () => {
+        messageEnd.current?.scrollIntoView({behavior: "smooth"})
+    }
+
+    useEffect(() => {
+        scroolToBottom()
+    },[messageEnd])
+
     
     return(
                                        /* MAIN DIV */
@@ -65,7 +76,7 @@ export default function ChatUI(){
         /* setting the properties to the main <div> of the chat box which dictates size of chat box */
         /* DIVS INSIDE MAIN DIV */
         <>
-        <img className="streamBackground" src={purplecity} alt="loading..." />
+        {/*<img className="streamBackground" src={purplecity} alt="loading..." />*/}
         <NavBar/>
         <div className="chat">
             <div className="chatVideo">
@@ -82,28 +93,31 @@ export default function ChatUI(){
                             </>
                         }
                 />}
-                <ReactPlayer 
+                {/*<ReactPlayer 
                     className="stream"
                     url={"https://youtu.be/rqNZTZBK3gs"}
                     volume={0.00}
                     playing={true}
                     height={"77.2vh"}
                     width={"70vw"}
-                />
+                />*/}
 
             </div>
+
             <div className="chatLeft">
                 <div className="chatTitle">
                     Chat Log
                 </div>
+
                 <div className="sentMessages">
                     {messages && messages.map((messages, index) => (
                         <div key={`${messages}-${index}`}>
                             <p>{messages}<br/></p>
                         </div>
-                        
                     ))}
+                    <div ref={messageEnd}/>
                 </div>
+
                 <div> {/* Div for user input and Chat Button */}
                     <input 
                     value={newMessage}
@@ -111,9 +125,6 @@ export default function ChatUI(){
                     className="typing" type="text"/>
                 </div>
                 <button onClick={handleAddMessage}>Chat</button>
-
-
-
             </div>
 
         </div>
