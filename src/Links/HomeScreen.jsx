@@ -21,7 +21,7 @@ export default function HomeScreen(){
     const session = useSession(); // Has access to the value
 
     useEffect(() => {
-        axios.get('/rooms/list')
+        axios.get('https://swejol.herokuapp.com/rooms/list')
         .then((res) => {
             if(res.data){
                 setRooms(res.data);
