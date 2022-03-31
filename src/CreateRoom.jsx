@@ -41,11 +41,26 @@ export default function CreateRoom(){
                         onChange={(event) => setRoomName(event.target.value)}
                         placeholder = 'Enter Your Room Name'></input>
                     <br/>
-                    <input 
+
+                    <label for="genreSelect">Genres</label>
+                    <br/>
+                    <select id="genreSelect" onChange={(event) => setGenre(event.target.value)}>
+                        <option value="NULL">Select</option>
+                        <option value="option1">Just Talking</option>
+                        <option value="option2">Gaming</option>
+                        <option value="option3">3</option>
+                        <option value="option4">4</option>
+                        <option value="option5">5</option>
+                        
+                    </select>
+                    <br/>
+
+                    {/*<input 
                         value={genre}
                         onChange={(event) => setGenre(event.target.value)}
                         placeholder = 'Enter the genre'></input>
-                    <br/>
+                    <br/>*/}
+                    
                     </>
                 }
                 handleCloseS = {handleCreateRoom}

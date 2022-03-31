@@ -37,12 +37,9 @@ export default function HomeScreen(){
     return(
         
         <div>
-            <img className="homeBackground" src={purplecity} alt="loading..." />
+            {/*<img className="homeBackground" src={purplecity} alt="loading..." />*/}
 
             <Nav/>
-            
-            
-            
             
             <div className="mainContent">
                 <img className="mainContentBackground" src={flare} alt="loading..." />
