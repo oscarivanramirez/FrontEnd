@@ -1,16 +1,29 @@
-import React, {useReducer, createContext, useContext} from 'react';
+import React, {useReducer, createContext, useContext, useState} from 'react';
 
-export const SessionContext = createContext();
+export const SessionContext = createContext(null);
 
-const SessionReducer =(name) => {
-    return name
+
+/*
+const SessionReducer = (state, action) => {
+    switch(action.type)
+    {
+        case 'addSession':
+            return {name:state.name}
+        default:
+            return {name:"L"}
+    }
 }
-
+*/
 export const SessionProvider = ({children}) => {
-    const [state, dispatch] = useReducer(SessionReducer, "");
-
-    let value = {state, dispatch}
-    return <SessionContext.Provider value={value}>{children}</SessionContext.Provider>
+    /*
+    const [state, dispatch] = useReducer(SessionReducer, {name:""});
+    const addSession = (name) => {
+        dispatch({type:'addSession',playload:{name:name}})
+    }
+    let value = {state, addSession}
+    */
+   const [name, setSession] = useState('Not signed in yet');
+   return <SessionContext.Provider value={{name,setSession}}>{children}</SessionContext.Provider>
 }
 
 export const useSession = () => {

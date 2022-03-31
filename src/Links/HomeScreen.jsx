@@ -36,7 +36,7 @@ export default function HomeScreen(){
         <div>
             <Nav/>
             
-            {session.state}
+            
             
             
             <div className="mainContent">
@@ -66,7 +66,7 @@ export default function HomeScreen(){
             </div>
             <div className="genres">
                 <div className="genre1">
-                        lol
+                    {session.name.userName}
                 </div>
                 <div className="genre2">
 

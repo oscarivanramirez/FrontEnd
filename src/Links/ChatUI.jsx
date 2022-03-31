@@ -46,6 +46,7 @@ export default function ChatUI(){
             setError(err.toString())
         })
     }
+    console.log(session.name.userName)
     return(
                                        /* MAIN DIV */
 
@@ -56,7 +57,8 @@ export default function ChatUI(){
         <div className="chat">
             <div className="chatVideo">
                 {roomname}
-                {session.state.name}
+                {/*{session.state.name} res.data[0].userName */}
+                {session.name.userName}
                 <Webcam/>
             </div>
             <div className="chatLeft">
