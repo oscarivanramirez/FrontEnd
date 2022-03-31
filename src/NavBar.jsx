@@ -130,13 +130,14 @@ export default function NavBar(){
                 </button>
             </div>
             <div className="loginSignup">
+
                 <nav>
                     <ul>
                         <CreateRoom/>
                         {
                             session.name.userName ? (
                                 <>
-                                    Hello {session.name.userName} !!
+                                    <label className="userNameLabel">Hello {session.name.userName} !!</label>
                                     <button onClick={() =>{session.setSession('')}}> Logout </button>
                                 </>
                                 
@@ -244,6 +245,7 @@ export default function NavBar(){
 
                     </ul>
                 </nav>
+
             </div>
 
         </div>
