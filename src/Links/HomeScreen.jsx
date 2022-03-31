@@ -25,6 +25,7 @@ export default function HomeScreen(){
         .then((res) => {
             if(res.data){
                 setRooms(res.data);
+                console.log(rooms)
             }
         })
         .catch((err) => {
