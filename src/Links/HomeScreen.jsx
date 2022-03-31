@@ -33,7 +33,7 @@ export default function HomeScreen(){
             setError(err.toString());
         })
     }, [refresh])
-    
+    console.log(rooms);
     return(
         
         <div>
@@ -52,6 +52,7 @@ export default function HomeScreen(){
             <div className="currRooms">
                 
                 {
+                    
                     rooms && rooms.map((room, index) => (
                     <Link to={`/ChatUI/${room.roomName}`}>
                         <div className={`room${index+1}`}>
