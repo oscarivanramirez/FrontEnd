@@ -54,7 +54,7 @@ export default function HomeScreen(){
                 {
                     
                     rooms && rooms.map((room, index) => (
-                    <Link to={`https://relaxed-bhaskara-2323e0.netlify.app/ChatUI/${room.roomName}`}>
+                    <Link to={`/ChatUI/${room.roomName}`}>
                         <div className={`room${index+1}`}>
                             <AR                                key={`${room}`}
                                 roomName={room.roomName}
