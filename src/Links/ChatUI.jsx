@@ -24,7 +24,7 @@ export default function ChatUI(){
     let {roomname} = useParams();
 
     useEffect(() => {
-        axios.get(`/messages/${roomname}/list`)
+        axios.get(`https://swejol.herokuapp.com/messages/${roomname}/list`)
         .then((res) => {
             if(res.data){
                 setMessages(res.data);
