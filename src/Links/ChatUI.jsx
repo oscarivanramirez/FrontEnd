@@ -6,6 +6,9 @@ import {useParams} from 'react-router-dom';
 import Webcam from '../Webcam';
 import { useSession } from '../UserSession';
 import NavBar from '../NavBar';
+import ReactPlayer from 'react-player';
+import WebcamHandler from '../WebcamHandler';
+import purplecity from '../images/purplecity.gif'
 
 export default function ChatUI(){
 
@@ -13,6 +16,9 @@ export default function ChatUI(){
     const [error, setError] = useState('');
     const [messages, setMessages] = useState(undefined);
     const [refresh, setRefresh] = useState(0);
+
+    const [webcamState, setWebcamState] = useState(false) //
+
     const session = useSession();
     let {roomname} = useParams();
 
@@ -38,28 +44,56 @@ export default function ChatUI(){
         .then((res) => {
             console.log(res);
             setRefresh(refresh + 1)
-            addNewMsg("")
+            addNewMsg("");
             
         })
         .catch((err) =>{
-            console.log(err)
-            setError(err.toString())
+            console.log(err);
+            setError(err.toString());
         })
     }
-    console.log(session.name.userName)
+    console.log(session.name.userName);
+
+
+    const toggleWebcam = () => {
+        setWebcamState(!webcamState);
+    };
+
+    
     return(
                                        /* MAIN DIV */
 
         /* setting the properties to the main <div> of the chat box which dictates size of chat box */
         /* DIVS INSIDE MAIN DIV */
         <>
+        <img className="streamBackground" src={purplecity} alt="loading..." />
         <NavBar/>
         <div className="chat">
             <div className="chatVideo">
                 {roomname}
                 {/*{session.state.name} res.data[0].userName */}
                 {session.name.userName}
-                <Webcam/>
+                {session.state.name}
+                <button href='#' onClick={toggleWebcam}>ON/OFF Camera</button>
+                {webcamState &&
+                    <WebcamHandler
+                        content ={ 
+                            <>
+                            <Webcam
+                                cameraState = {webcamState}
+                            />
+                            </>
+                        }
+                />}
+                <ReactPlayer 
+                    className="stream"
+                    url={"https://youtu.be/rqNZTZBK3gs"}
+                    volume={0.00}
+                    playing={true}
+                    height={"77.2vh"}
+                    width={"70vw"}
+                />
+
             </div>
             <div className="chatLeft">
                 <div className="chatTitle">

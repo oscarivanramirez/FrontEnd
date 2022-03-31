@@ -4,31 +4,52 @@ div.chat{
     text-align: center;
     /*align-items: center;*/
     justify-content: center;
+    color: rgb(255, 191, 0);
     
 }
 div.chatVideo{
     width:70vw;
     height: 80vh;
-    border: 1px solid orange;
+    border: 0px solid orange;
     align-self: center;
+    color: rgb(255, 191, 0);
+    background-color: rgba(45, 18, 54, 0.9);
 }
 div.chatLeft{
     width: 30vw;
     height: 80vh;
     margin-left: auto;
-    border: 1px solid red;
+    border: 0px solid red;
     flex-direction: column;
     align-self: center;
 }
 div.chatTitle{
-    border: 1px solid blue;
+    border: 0px solid blue;
+    background-color: rgba(45, 18, 54, 0.9);
 }
 div.sentMessages{
     width: 100%;
     height: 70vh;
     flex-direction: column;
+    background-color: rgba(46, 12, 58, 0.6);
+    padding-top: 12.5px;
 }
 input.typing{
     height: 5vh;
     width: 100%;
+}
+
+.stream {
+    pointer-events: none;
+    z-index: 0;
+    position: absolute;
+    display: flex;
+}
+
+.streamBackground{
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  width: 100vw;
+  height: 120vh;
 }

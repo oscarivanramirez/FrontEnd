@@ -1,5 +1,9 @@
 .videoSize{
-    border: 1px solid green;
-    width: auto;
-    height: 77.3vh;
+    border: 0px solid green;
+    width: 30vw;
+    height: 30vh;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    margin-left: -77px;
 }

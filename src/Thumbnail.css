@@ -1,9 +1,9 @@
 .contentWrapper{
     height: 45.6vh;
-    border: 1px solid green;
+    border: 0px solid green;
 }
 .reactPlayer{
-    border: 2px solid aqua;
+    border: 0px solid aqua;
     pointer-events: none;
 }
 

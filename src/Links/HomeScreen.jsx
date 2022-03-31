@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "../NavBar"
 import './HomeScreen.css'
 import AR from "../ActiveRoom"
+import Genre from "../Genre";
 import axios from "axios";
 import {Link,useParams} from 'react-router-dom';
 
@@ -9,6 +10,7 @@ import { useSession } from "../UserSession";
 //import Chat from './ChatUI'
 import Thumbnail from "../Thumbnail";
 import flare from '../images/purpleflare.gif';
+import purplecity from '../images/purplecity.gif'
 
 
 export default function HomeScreen(){
@@ -34,6 +36,8 @@ export default function HomeScreen(){
     return(
         
         <div>
+            <img className="homeBackground" src={purplecity} alt="loading..." />
+
             <Nav/>
             
             
@@ -43,6 +47,7 @@ export default function HomeScreen(){
                 <img className="mainContentBackground" src={flare} alt="loading..." />
                 <Thumbnail/>
             </div>
+
             <div className="currRooms">
                 
                 {
@@ -52,30 +57,74 @@ export default function HomeScreen(){
                             <AR                                key={`${room}`}
                                 roomName={room.roomName}
                                 numUsers={room.num_users}
+                                genre={room.genre}
                             />
                             {/*<Link to={"/ChatUI"}></Link> */}
                             
                             
                         </div>
                     </Link>
-                        
-                    
-
                     
                 ))}
             </div>
+
             <div className="genres">
                 <div className="genre1">
                     {session.name.userName}
+                    <Genre
+                        name={'Just Chatting'}
+                        viewers={394}
+                        genre={'IRL'}
+                    />
                 </div>
                 <div className="genre2">
-
+                    <Genre
+                        name={'Fortnite'}
+                        viewers={126}
+                        genre={'Shooter'}
+                    />
                 </div>
                 <div className="genre3">
-
+                    <Genre
+                        name={'Valorant'}
+                        viewers={193}
+                        genre={'FPS'}
+                    />
                 </div>
                 <div className="genre4">
-
+                    <Genre
+                        name={'Elden RIng'}
+                        viewers={108}
+                        genre={'RPG'}
+                    />
+                </div>
+                <div className="genre5">
+                    <Genre
+                        name={'Just Chatting'}
+                        viewers={394}
+                        genre={'IRL'}
+                    />
+                </div>
+                <div className="genre6">
+                    <Genre
+                        name={'Fortnite'}
+                        viewers={126}
+                        genre={'Shooter'}
+                    />
+                </div>
+                <div className="genre7">
+                    <Genre
+                        name={'Valorant'}
+                        viewers={193}
+                        genre={'FPS'}
+                    />
+                </div>
+                <div className="genre8">
+                    <Genre
+                        name={'Elden RIng'}
+                        viewers={108}
+                        genre={'RPG'}
+                    />
                 </div>
             </div>
         </div>

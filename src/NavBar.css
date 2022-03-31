@@ -6,6 +6,7 @@ li{
 a{
     text-decoration: none;
     padding: 0 8px;
+    color: rgb(255, 191, 0);
 }
 ul{
     display: flex;
@@ -13,9 +14,9 @@ ul{
 }
 nav{
     display: flex;
+    
 }
 .Header{  
-    background-color: #6441a5;
     display: grid;
     grid-template-columns: 25% 45% 30%;
     grid-template-rows: 1fr;
