@@ -72,8 +72,6 @@ export default function ChatUI(){
             <div className="chatVideo">
                 {roomname}
                 {/*{session.state.name} res.data[0].userName */}
-                {session.name.userName}
-                {session.state.name}
                 <button href='#' onClick={toggleWebcam}>ON/OFF Camera</button>
                 {webcamState &&
                     <WebcamHandler

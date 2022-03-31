@@ -39,7 +39,7 @@ export default function NavBar(){
             .then((res) => {
                 console.log(res);
                 //setRefresh(refresh + 1);
-                session.setSession(`${newUser}`);
+                session.setSession(res.data[0]);
                 setNewUser('');
                 setNewPW('');
                 //setSignupSuccess(`congrats ${newUser} On Signing Up`);
@@ -51,6 +51,7 @@ export default function NavBar(){
             })
     }
 
+    /*
     useEffect(() => {
         axios.get("/users/list")
         .then((res) => {
@@ -63,6 +64,7 @@ export default function NavBar(){
             setError(err.toString());
         })
     }, [])
+    */
 
     useEffect(() => {
         const data = localStorage.getItem("SessionInfo");
@@ -131,8 +133,68 @@ export default function NavBar(){
                 <nav>
                     <ul>
                         <CreateRoom/>
-                        
-                        <li>
+                        {
+                            session.name.userName ? (
+                                <>
+                                    Hello {session.name.userName} !!
+                                    <button onClick={() =>{session.setSession('')}}> Logout </button>
+                                </>
+                                
+                                ):(
+                                <>
+                                    <li>
+                                        <button onClick={toggleLoginPopUp}>Log in</button>
+                                        {loginState && 
+                                        <Popup
+                                            handleCloseX = {toggleLoginPopUp}
+                                            content = { <>
+                                                <h3>Log in</h3>
+                                                <br/>
+                                                <input 
+                                                    value={user} 
+                                                    onChange={(event) => setUser(event.target.value)}
+                                                    placeholder={'Enter your UserName'}/>
+                                                <br/>
+                                                <input
+                                                    value={PW}
+                                                    onChange={(event) => setPW(event.target.value)}
+                                                    placeholder={'Enter your PassWord'}/>
+                                                <br/>
+                                                </>
+                                            }
+                                            handleCloseS={handleFindUser}
+                                        />}
+                                    </li>
+                                    
+                                    <li>
+                                        <button onClick={toggleSignUpPopUp}>Sign Up</button>
+                                        {signUpState && 
+                                        <Popup
+                                            handleCloseX = {toggleSignUpPopUp}
+                                            content = { <>
+                                                <h3>Sign Up</h3>
+                                                <br/>
+                                                <input 
+                                                    value={newUser} 
+                                                    onChange={(event) => setNewUser(event.target.value)}
+                                                    placeholder={'Enter a UserName'}/>
+                                                <br/>
+                                                <input
+                                                    value={newPW}
+                                                    onChange={(event) => setNewPW(event.target.value)}
+                                                    placeholder={'Enter a Unique PassWord'}/>
+                                                <br/>
+                                                </>
+                                            }
+                                            handleCloseS = {handleCreateUser}
+                                        />}
+                                    </li>
+                                </>
+
+                                )
+                        }
+
+                        {/*<li>
                             <a href='#' onClick={toggleLoginPopUp}>Log in</a>
                             {loginState && 
                             <Popup
@@ -178,7 +240,7 @@ export default function NavBar(){
                                 }
                                 handleCloseS = {handleCreateUser}
                             />}
-                        </li>
+                            </li>*/}
 
                     </ul>
                 </nav>
