@@ -2,6 +2,8 @@ div.gmain{
     flex-direction: column;
     display: flex;
     height: 20vh;
+    padding-left: 6.5px;
+    align-content: center;
 }
 
 div.gmain div.gside{
@@ -14,14 +16,18 @@ div.gmain div.gside{
     width: 165px;
     position: relative;
     transition: ease-in-out 0s;
+    border-radius: 10px;
+}
+
+div.gmain div.gside:hover{
+    background-color: rgba(190, 111, 227, 0.9);
 }
 
 div.gside:hover{
     border: 0px solid purple;
-    background-color: rgba(190, 111, 227, 0.9);
     top: -10px;
     left: 10px;
-    box-shadow: -10px 10px 15px 5px rebeccapurple;
+    box-shadow: -10px 10px 15px 5px rgba(255, 191, 0, 0.75);
 }
 
 div.gmain div.gside div.gprofile{
@@ -29,6 +35,7 @@ div.gmain div.gside div.gprofile{
     width: 21vh;
     height: 24vh;
     background: black;;
+    border-radius: 10px;
 }
 div.gmain div.gside div.guserName{
     grid-area: username;

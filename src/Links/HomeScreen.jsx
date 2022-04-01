@@ -36,7 +36,7 @@ export default function HomeScreen(){
     console.log(rooms);
     return(
         
-        <div>
+        <div className="animated-background">
             {/*<img className="homeBackground" src={purplecity} alt="loading..." />*/}
 
             <Nav/>

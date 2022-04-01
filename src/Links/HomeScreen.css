@@ -15,7 +15,7 @@
   transition: ease-in-out 0s;
   color: rgb(255, 191, 0);
   background-color: rgba(45, 18, 54, 0.75);
-
+  border-radius: 10px;
 }
 
 .room1:hover,.room2:hover,.room3:hover,.room4:hover,.room5:hover{
@@ -23,7 +23,7 @@
   background-color: rgba(190, 111, 227, 0.9);
   top: -10px;
   left: 10px;
-  box-shadow: -10px 10px 15px 5px rebeccapurple;
+  box-shadow: -10px 10px 15px 5px rgba(255, 191, 0, 0.75);
 }
 
 .room1{ 
@@ -110,4 +110,24 @@ div.genres{
   width: 100vw;
   height: 140vh;
 }
+
+.animated-background{
+  background: linear-gradient(
+    to right, rgb(55, 35, 66),
+    rgb(70, 44, 84), rgb(90, 54, 110)
+  );
+  background-size: 400% 400%;
+  animation: animate-background 5s infinite ease-in-out;
+}
   
+@keyframes animate-background{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
