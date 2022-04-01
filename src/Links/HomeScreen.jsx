@@ -45,7 +45,7 @@ export default function HomeScreen(){
                 <img className="mainContentBackground" src={flare} alt="loading..." />
                 <Thumbnail/>
             </div>
-
+            <hr className="rounded"/>
             <div className="currRooms">
                 
                 {
@@ -66,7 +66,7 @@ export default function HomeScreen(){
                     
                 ))}
             </div>
-
+            <hr className="rounded"/>
             <div className="genres">
                 <div className="genre1">
                     <Genre

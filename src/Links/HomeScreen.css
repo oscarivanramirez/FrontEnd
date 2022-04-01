@@ -111,7 +111,7 @@ div.genres{
 }
 
 .animated-background{
-  height: 120vh;
+  height: 130vh;
   background: linear-gradient(
     to right, rgb(55, 35, 66),
     rgb(70, 44, 84), rgb(90, 54, 110)
@@ -130,4 +130,14 @@ div.genres{
   100%{
     background-position: 0% 50%;
   }
+}
+
+hr.rounded {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top: 5px solid rgb(195, 114, 233);
+  border-radius: 5px;
+  border-bottom: 0px;
+  width: 90vw;
+  
 }
