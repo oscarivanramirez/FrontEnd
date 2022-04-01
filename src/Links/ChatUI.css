@@ -55,3 +55,25 @@ input.typing{
   width: 100vw;
   height: 120vh;
 }
+
+.animated-background{
+    height: 100vh;
+    background: linear-gradient(
+      to right, rgb(55, 35, 66),
+      rgb(70, 44, 84), rgb(90, 54, 110)
+    );
+    background-size: 400% 400%;
+    animation: animate-background 5s infinite ease-in-out;
+  }
+    
+  @keyframes animate-background{
+    0%{
+      background-position: 0% 50%;
+    }
+    50%{
+      background-position: 100% 50%;
+    }
+    100%{
+      background-position: 0% 50%;
+    }
+  }

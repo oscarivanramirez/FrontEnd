@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import { useState,useEffect } from 'react';
 import Popup from "./PopUp";
 import axios from 'axios'
+import './CreateRoom.css'
 
 export default function CreateRoom(){
     const [roomName, setRoomName] = useState('') //to retrieve new room name
@@ -28,9 +29,9 @@ export default function CreateRoom(){
 
     return(
         <div>
-            <button onClick={togglePopUp}>
-                Create New Room
-            </button>
+            <a href="#" className="roomButton" onClick={togglePopUp}>
+                Create Room
+            </a>
             {state &&
             <Popup
                 handleCloseX = {togglePopUp}

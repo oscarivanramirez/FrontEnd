@@ -6,7 +6,6 @@
   grid-auto-flow: row dense;
   grid-template-areas:
     "room1 room2 room3 room4 room5";
-  
 }
 .room1,.room2,.room3,.room4,.room5{
   border: 0px solid red;  bottom: 100px;
@@ -51,7 +50,7 @@ div.mainContent{
   border: 0px solid black;
   height: 45.6vh;
   width: 99.8vw;
-  background-color: rgba(0, 0, 0, 0.9);
+
 }
 
 .mainContentBackground{
@@ -59,7 +58,7 @@ div.mainContent{
   width: 99.92vw;
   z-index: 0;
   position: absolute;
-  opacity: 0.5;
+  opacity: 0.25;
 }
 
 div.currRooms{
@@ -112,6 +111,7 @@ div.genres{
 }
 
 .animated-background{
+  height: 120vh;
   background: linear-gradient(
     to right, rgb(55, 35, 66),
     rgb(70, 44, 84), rgb(90, 54, 110)

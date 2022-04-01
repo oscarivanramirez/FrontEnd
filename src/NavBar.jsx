@@ -144,7 +144,7 @@ export default function NavBar(){
                                 ):(
                                 <>
                                     <li>
-                                        <button onClick={toggleLoginPopUp}>Log in</button>
+                                        <a href='#' className='button' onClick={toggleLoginPopUp}>Log in</a>
                                         {loginState && 
                                         <Popup
                                             handleCloseX = {toggleLoginPopUp}
@@ -168,7 +168,7 @@ export default function NavBar(){
                                     </li>
                                     
                                     <li>
-                                        <button onClick={toggleSignUpPopUp}>Sign Up</button>
+                                        <a href="#" className="button" onClick={toggleSignUpPopUp}>Sign Up</a>
                                         {signUpState && 
                                         <Popup
                                             handleCloseX = {toggleSignUpPopUp}
