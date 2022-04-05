@@ -6,7 +6,7 @@ import {Link, BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ChatUI from "./Links/ChatUI";
 import HomeScreen from "./Links/HomeScreen";
 //import LoginSignup from "./LoginSignup";
-import Webcam from "./Webcam.jsx";
+import WebcamMain from "./WebcamMain.jsx";
 import {SessionProvider} from './UserSession'
 
 export default function TeleStreamApp(){

@@ -1,5 +1,5 @@
 import react from "react";
-import Webcam from "./Webcam";
+import WebcamMain from "./WebcamMain";
 
 export default function WebcamHandler({content}){
     return(

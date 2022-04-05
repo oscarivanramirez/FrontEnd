@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import './ChatUI.css'
 import axios from "axios";
 import {useParams} from 'react-router-dom';
-import Webcam from '../Webcam';
+import WebcamMain from '../WebcamMain';
 import { useSession } from '../UserSession';
 import NavBar from '../NavBar';
 import ReactPlayer from 'react-player';
@@ -89,7 +89,7 @@ export default function ChatUI(){
                         <WebcamHandler
                             content ={ 
                                 <>
-                                <Webcam
+                                <WebcamMain
                                     cameraState = {webcamState}
                                 />
                                 </>
