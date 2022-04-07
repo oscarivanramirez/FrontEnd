@@ -1,7 +1,7 @@
 import React from "react"
 import './Genre.css'
 
-export default function Genre({name, viewers, genre}){
+export default function Genre({name, viewers}){
     return(
         <>
             <div className="gmain">
@@ -12,8 +12,6 @@ export default function Genre({name, viewers, genre}){
                     <span className="guserName">{name}</span>
                     <br/>
                     <span className="gwatchers">{viewers}K viewers</span>
-                    <br/>
-                    <span className="ggenre">{genre}</span>
                 </div>
             </div>
             

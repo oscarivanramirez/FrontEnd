@@ -14,7 +14,7 @@ export default function CreateRoom(){
     }
 
     const handleCreateRoom = () =>{
-        axios.post(`rooms/create/${roomName}/${genre}`)
+        axios.post(`https://swejol.herokuapp.com/rooms/create/${roomName}/${genre}`)
             .then((res) => {
                 console.log(res);
                 setRoomName('');
