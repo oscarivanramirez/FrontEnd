@@ -56,7 +56,8 @@ input.typing{
   height: 120vh;
 }
 
-.animated-background{
+div.chat-animated-background{
+    position: fixed;
     height: 100vh;
     background: linear-gradient(
       to right, rgb(55, 35, 66),

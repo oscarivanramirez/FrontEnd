@@ -1,15 +1,18 @@
 import React from "react";
 import NavBar from "./NavBar";
 import { useState,useEffect } from 'react';
+import {useSession} from './UserSession';
 import Popup from "./PopUp";
 import axios from 'axios'
 import './CreateRoom.css'
 
 export default function CreateRoom(){
+    const session = useSession();
     const [roomName, setRoomName] = useState('') //to retrieve new room name
     const [genre, setGenre] = useState('') //to retrieve genre of new room
     const [state, setState] = useState(false) //to determine if pop up to create a room is showing or not
-
+    const [owner, setOwner] = useState('')
+    
     const togglePopUp = () => {
         setState(!state);
     }
@@ -18,6 +21,7 @@ export default function CreateRoom(){
         axios.post(`https://swejol.herokuapp.com/rooms/create/${roomName}/${genre}`)
             .then((res) => {
                 console.log(res);
+                setOwner(session.name.userName);
                 setRoomName('');
                 setGenre('');
                 setState(!state);
@@ -29,9 +33,11 @@ export default function CreateRoom(){
 
     return(
         <div>
-            <a href="#" className="roomButton" onClick={togglePopUp}>
-                Create Room
-            </a>
+            {localStorage.getItem('SessionInfo') != '""' &&
+                <a href="#" className="roomButton" onClick={togglePopUp}>
+                    Create Room
+                </a>
+            }
             {state &&
             <Popup
                 handleCloseX = {togglePopUp}
