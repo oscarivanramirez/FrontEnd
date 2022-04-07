@@ -7,6 +7,7 @@
     width: 520px;
     border: 0px black;
     background: black;  
+    border-radius: 10px;
 }
 
 .main .side{
@@ -16,7 +17,7 @@
     padding: 10px;
     width: 300px;
     color: rgb(255, 191, 0);
-    justify-content: center;   
+    justify-content: center; 
 }
 
 .main .side .profile{
@@ -43,5 +44,6 @@
 .main .side .genre{
     grid-area: tag;
     color: rgb(255, 191, 0);
+    
 }
 

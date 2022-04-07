@@ -7,7 +7,7 @@ import ChatUI from "./Links/ChatUI";
 import HomeScreen from "./Links/HomeScreen";
 import Directory from "./Directory"
 //import LoginSignup from "./LoginSignup";
-import Webcam from "./Webcam.jsx";
+import WebcamMain from "./WebcamMain.jsx";
 import {SessionProvider} from './UserSession'
 
 export default function TeleStreamApp(){

@@ -14,7 +14,6 @@ export default function Genre({name, viewers}){
                     <span className="gwatchers">{viewers}K viewers</span>
                 </div>
             </div>
-            
         </>
     )
 }

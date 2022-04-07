@@ -38,7 +38,7 @@ export default function HomeScreen(){
     console.log(rooms);
     return(
         
-        <div>
+        <div className="animated-background">
             {/*<img className="homeBackground" src={purplecity} alt="loading..." />*/}
 
             <Nav/>
@@ -47,7 +47,7 @@ export default function HomeScreen(){
                 <img className="mainContentBackground" src={flare} alt="loading..." />
                 <Thumbnail/>
             </div>
-
+            <hr className="rounded"/>
             <div className="currRooms">
                 
                 {
@@ -68,7 +68,7 @@ export default function HomeScreen(){
                     
                 ))}
             </div>
-
+            <hr className="rounded"/>
             <div className="genres">
                 {
                     GENRES.map((genre, index) => (
