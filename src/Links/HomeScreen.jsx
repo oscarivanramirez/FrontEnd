@@ -56,6 +56,7 @@ export default function HomeScreen(){
                     <Link to={`/ChatUI/${room.roomName}`}>
                         <div className={`room${index+1}`}>
                             <AR                                key={`${room}`}
+                                roomStreamer={room.createrName}
                                 roomName={room.roomName}
                                 numUsers={room.num_users}
                                 genre={room.genre}
