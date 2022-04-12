@@ -78,13 +78,15 @@ export default function ChatUI(){
         /* DIVS INSIDE MAIN DIV */
         <>
         {/*<img className="streamBackground" src={purplecity} alt="loading..." />*/}
-        <div className='animated-background'>
+        <div className='chat-animated-background'>
             <NavBar/>
             <div className="chat">
                 <div className="chatVideo">
-                    {roomname}
+                    <ul>
+                        <li>{roomname}</li>
+                        <li><button onClick={toggleWebcam}>ON/OFF Camera</button></li>
+                    </ul>
                     {/*{session.state.name} res.data[0].userName */}
-                    <button onClick={toggleWebcam}>ON/OFF Camera</button>
                     {webcamState &&
                         <WebcamHandler
                             content ={ 

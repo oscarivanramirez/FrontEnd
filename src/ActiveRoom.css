@@ -12,7 +12,7 @@
 
 .main .side{
     display: grid;
-    grid-template-areas: "pic username" "pic roomname" "pic watchers" "pic tag";
+    grid-template-areas: "roomname roomname" "username username" "viewers viewers" "genre genre";
     grid-template-columns: 40px auto;
     padding: 10px;
     width: 300px;
@@ -20,30 +20,35 @@
     justify-content: center; 
 }
 
-.main .side .profile{
+/*.main .side .profile{
     grid-area: pic;
     width: 32px;
     height: 32px;
     background: blue;;
     border-radius: 50%;
+}*/
+
+.main .side .roomName{
+    grid-area: roomname;
+    font-size: large;
+    color:white;
 }
+
 .main .side .userName{
     grid-area: username;
     color: rgb(255, 191, 0);
-}
-.main .side .roomName{
-    grid-area: roomname;
-    color: rgb(255, 191, 0);
+    font-size: medium;
 }
 
 .main .side .watchers{
-    grid-area: watchers;
+    grid-area: viewers;
+    font-size: medium;
     color: rgb(255, 191, 0);
 }
 
 .main .side .genre{
-    grid-area: tag;
-    color: rgb(255, 191, 0);
-    
+    grid-area: genre;
+    font-size: small;
+    color: gray;
 }
 
