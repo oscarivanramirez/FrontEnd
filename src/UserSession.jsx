@@ -22,7 +22,7 @@ export const SessionProvider = ({children}) => {
     }
     let value = {state, addSession}
     */
-   const [name, setSession] = useState('Not signed in yet');
+   const [name, setSession] = useState('');
    return <SessionContext.Provider value={{name,setSession}}>{children}</SessionContext.Provider>
 }
 
