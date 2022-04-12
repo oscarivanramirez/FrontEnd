@@ -10,6 +10,7 @@ import ReactPlayer from 'react-player';
 import WebcamHandler from '../WebcamHandler';
 import purplecity from '../images/purplecity.gif'
 import { useRef } from 'react/cjs/react.production.min';
+import { backendurl } from '../config';
 
 export default function ChatUI(){
 
@@ -24,7 +25,7 @@ export default function ChatUI(){
     let {roomname} = useParams();
 
     useEffect(() => {
-        axios.get(`https://swejol.herokuapp.com/messages/${roomname}/list`)
+        axios.get(`${backendurl}messages/${roomname}/list`)
         .then((res) => {
             if(res.data){
                 setMessages(res.data);
@@ -41,7 +42,7 @@ export default function ChatUI(){
     };
 
     const handleAddMessage = () => {
-        axios.post(`https://swejol.herokuapp.com/messages/create/${roomname}/${newMessage}`)
+        axios.post(`${backendurl}messages/create/${roomname}/${newMessage}`)
         .then((res) => {
             console.log(res);
             setRefresh(refresh + 1)

@@ -7,6 +7,7 @@ import { useState,useEffect } from 'react';
 import {useSession} from './UserSession'
 import { Link } from "react-router-dom";
 import purplecity from './images/purplecity.gif';
+import { backendurl } from "./config";
 
 export default function NavBar(){
     
@@ -35,7 +36,7 @@ export default function NavBar(){
     //const [signupSuccess, setSignupSuccess] = useState('')
 
     const handleCreateUser = () =>{
-        axios.post(`users/create/${newUser}/${newPW}`)
+        axios.post(`${backendurl}users/create/${newUser}/${newPW}`)
             .then((res) => {
                 console.log(res);
                 //setRefresh(refresh + 1);
@@ -96,7 +97,7 @@ export default function NavBar(){
     }, [])
     */
     const handleFindUser = () => {
-        axios.get(`https://swejol.herokuapp.com/users/find/${user}/${PW}`)
+        axios.get(`${backendurl}users/find/${user}/${PW}`)
         .then((res) => {
             console.log(res);
             //console.log(res.data);

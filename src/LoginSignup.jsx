@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import './LoginSignup.css'
+import { backendurl } from "./config";
 
 export default function LoginSignup(){
 
@@ -25,7 +26,7 @@ export default function LoginSignup(){
     const [refresh, setRefresh] = useState(0);
 
     useEffect(() =>{
-        axios.get('users/list')
+        axios.get(`${backendurl}users/list`)
             .then((res) => {
                 if(res.data){
                     setUsers(res.data)
@@ -38,7 +39,7 @@ export default function LoginSignup(){
     }, [refresh])
     
     const handleCreateUser = () =>{
-        axios.post(`users/create/${newUser}/${newPW}`)
+        axios.post(`${backendurl}users/create/${newUser}/${newPW}`)
             .then((res) => {
                 console.log(res);
                 setRefresh(refresh + 1);

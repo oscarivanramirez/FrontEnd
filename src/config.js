@@ -1,0 +1,1 @@
+export const backendurl = "https://swejol.herokuapp.com/"

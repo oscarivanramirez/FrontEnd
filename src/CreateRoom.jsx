@@ -5,6 +5,7 @@ import {useSession} from './UserSession';
 import Popup from "./PopUp";
 import axios from 'axios'
 import './CreateRoom.css'
+import { backendurl } from "./config";
 
 export default function CreateRoom(){
     const session = useSession();
@@ -18,7 +19,7 @@ export default function CreateRoom(){
     }
 
     const handleCreateRoom = () =>{
-        axios.post(`https://swejol.herokuapp.com/rooms/create/${roomName}/${genre}/${owner}`)
+        axios.post(`${backendurl}rooms/create/${roomName}/${genre}/${owner}`)
             .then((res) => {
                 console.log(res);
                 setRoomName('');
