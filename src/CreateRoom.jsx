@@ -38,7 +38,7 @@ export default function CreateRoom(){
 
     return(
         <div>
-            {localStorage.getItem('SessionInfo') != 'Not signed in yet' &&
+            {localStorage.getItem('SessionInfo') === 'Not signed in yet' &&
                 <a href="#" className="roomButton" onClick={togglePopUp}>
                     Create Room
                 </a>
