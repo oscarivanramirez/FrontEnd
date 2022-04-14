@@ -28,3 +28,40 @@
       background-position: 0% 50%;
     }
   }
+
+.genresCarousel {  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . ."
+    "gc1 gc2 gc3 gc4"
+    "gc5 gc6 gc7 gc8"
+    "gc9 gc10 gc11 gc12";
+}
+
+.gc1 { grid-area: gc1; }
+
+.gc2 { grid-area: gc2; }
+
+.gc3 { grid-area: gc3; }
+
+.gc4 { grid-area: gc4; }
+
+.gc5 { grid-area: gc5; }
+
+.gc6 { grid-area: gc6; }
+
+.gc7 { grid-area: gc7; }
+
+.gc8 { grid-area: gc8; }
+
+.gc9 { grid-area: gc9; }
+
+.gc10 { grid-area: gc10; }
+
+.gc11 { grid-area: gc11; }
+
+.gc12 { grid-area: gc12; }
+  
