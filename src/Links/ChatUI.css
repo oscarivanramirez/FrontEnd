@@ -78,3 +78,20 @@ div.chat-animated-background{
       background-position: 0% 50%;
     }
   }
+
+  .buttonPulse{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .buttonPulse:hover{
+    animation: pulsate 1s ease-in-out;
+  }
+  
+  @keyframes pulsate{
+    0%{
+      box-shadow:
+        0 0 20px #5ddcff,
+        0 0 50px #4e00c3;
+    }
+  }

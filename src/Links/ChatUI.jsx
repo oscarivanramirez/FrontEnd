@@ -123,7 +123,7 @@ export default function ChatUI(){
                         <div ref={messageEnd}/>
                     </div>
 
-                    <div> {/* Div for user input and Chat Button */}
+                    <div className='buttonPulse'> {/* Div for user input and Chat Button */}
                         <input 
                         value={newMessage}
                         onChange={(event) => addNewMsg(event.target.value)}
