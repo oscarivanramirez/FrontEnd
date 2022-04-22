@@ -5,7 +5,7 @@ import { Carousel } from "3d-react-carousal";
 import ReactPlayer from "react-player";
 import Genre from './Genre';
 import HomeScreen from './Links/HomeScreen';
-import {Link,useParams} from 'react-router-dom';
+import {Link,useParams, useNavigate} from 'react-router-dom';
 import AR from "./ActiveRoom"
 import './Directory.css'
 
@@ -15,14 +15,17 @@ export default function Directory(){
     let {genre} = useParams();
     const [error, setError] = useState('');
     const [rooms, setRooms] = useState(undefined);
-    const [currgenre, setGenre] = useState(undefined);
-    setGenre({genre});
-
-    let slides = [
-        <div> </div>
-    ]
+    const navigate = useNavigate();
+    //const [currgenre, setGenre] = useState(undefined);
+    
+    //setGenre({genre});
+    /*
     useEffect(() => {
-        axios.get(`https://swejol.herokuapp.com/rooms/list/${currgenre}`)
+        setGenre({genre});
+    })
+    */
+    useEffect(() => {
+        axios.get(`https://swejol.herokuapp.com/rooms/list/${genre}`)
         .then((res) => {
             if(res.data){
                 setRooms(res.data);
@@ -31,60 +34,105 @@ export default function Directory(){
         })
         .catch((err) => {
             console.log(err);
-            setError(err.toString());
+            //setError(err.toString());
         })
-    }, [currgenre])
+    }, [genre])//[currgenre]
     
     const PrevGenre = () => {
-
+        console.log(GENRES[0]);
+        console.log({genre}.genre);
+        if(GENRES[0]==={genre}.genre){
+            navigate(`/Directory/${GENRES[4]}`)  
+        }
+        else{
+            var i=1;
+            var done=false;
+            while(i<GENRES.length && !done)
+            {
+                console.log(GENRES[i]);
+                console.log({genre}.genre);
+                if(GENRES[i]==={genre}.genre)
+                {
+                    console.log(GENRES[i-1]);
+                    navigate(`/Directory/${GENRES[i-1]}`);
+                    done=true;
+                }
+                i++;
+            }
+        }
+        
+        /*
+        axios.get(`https://swejol.herokuapp.com/rooms/list/${prevgenre}`)
+        .then((res) => {
+            if(res.data){
+                setRooms(res.data);
+                console.log(rooms)
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            //setError(err.toString());
+        })
+        */
     }
     const NextGenre = () => {
-        
+        console.log(GENRES[0]);
+        console.log({genre}.genre);
+        if(GENRES[4]==={genre}.genre){
+            navigate(`/Directory/${GENRES[0]}`)  
+        }
+        else{
+            var i=0;
+            var done=false;
+            while(i<GENRES.length-1 && !done)
+            {
+                console.log(GENRES[i]);
+                console.log({genre}.genre);
+                if(GENRES[i]==={genre}.genre)
+                {
+                    console.log(GENRES[i+1]);
+                    navigate(`/Directory/${GENRES[i+1]}`);
+                    done=true;
+                }
+                i++;
+            }
+        }
     }
 
 
     return(
-        <div className="genre-animated-background">
-            <Nav/>
-            <button onClick={PrevGenre}>Left</button>
-            <h1>{genre}</h1>
-            <button onClick={NextGenre}>Right</button>
-            <div class="genresCarousel">
-                {
-                    rooms && rooms.map((room, index) => (
-                        <Link to={`/ChatUI/${room.roomName}`}>
-                            <div className={`gc${index+1}`}>
-                                <AR                                key={`${room}`}
-                                    roomStreamer={room.createrName}
-                                    roomName={room.roomName}
-                                    numUsers={room.num_users}
+            <div>
+                <Nav/>
+                <button onClick={PrevGenre}>Left</button>
+                <h1>{genre}</h1>
+                <button onClick={NextGenre}>Right</button>
+                <div class="genresCarousel">
+                    {
+                        rooms && rooms.map((room, index) => (
+                            <Link to={`/ChatUI/${room.roomName}`}>
+                                <div className={`gc${index+1}`}>
+                                    <AR                                key={`${room}`}
+                                        roomStreamer={room.createrName}
+                                        roomName={room.roomName}
+                                        numUsers={room.num_users}
+                                        
+                                    />
                                     
-                                />
-                                {/*<Link to={"/ChatUI"}></Link> */}
-                                
-                                
-                            </div>
-                        </Link>
-                        
-                    ))
-
-
-                }
-                {/*
-                <div class="gc1"></div>
-                <div class="gc2"></div>
-                <div class="gc3"></div>
-                <div class="gc4"></div>
-                <div class="gc5"></div>
-                <div class="gc6"></div>
-                <div class="gc7"></div>
-                <div class="gc8"></div>
-                <div class="gc9"></div>
-                <div class="gc10"></div>
-                <div class="gc11"></div>
-                <div class="gc12"></div>
-                */}
+                                    
+                                    
+                                </div>
+                            </Link>
+                            
+                        ))
+    
+                    
+                    }
+                    
+                </div>
             </div>
-        </div>
-    )
+    
+        )   
+             
+    
+
 }

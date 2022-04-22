@@ -11,7 +11,7 @@ import { useSession } from "../UserSession";
 import Thumbnail from "../Thumbnail";
 import flare from '../images/purpleflare.gif';
 import purplecity from '../images/purplecity.gif'
-import { backendurl } from "../config";
+
 
 export default function HomeScreen(){
 
@@ -22,7 +22,7 @@ export default function HomeScreen(){
     const session = useSession(); // Has access to the value
 
     useEffect(() => {
-        axios.get(`${backendurl}rooms/list`)
+        axios.get('https://swejol.herokuapp.com/rooms/list')
         .then((res) => {
             if(res.data){
                 setRooms(res.data);
@@ -42,11 +42,11 @@ export default function HomeScreen(){
             {/*<img className="homeBackground" src={purplecity} alt="loading..." />*/}
 
             <Nav/>
-            
+            {/*
             <div className="mainContent">
                 <img className="mainContentBackground" src={flare} alt="loading..." />
                 <Thumbnail/>
-            </div>
+            </div>*/}
             <hr className="rounded"/>
             <div className="currRooms">
                 
