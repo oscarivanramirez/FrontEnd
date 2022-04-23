@@ -12,6 +12,8 @@ import purplecity from '../images/purplecity.gif'
 import { useRef } from 'react/cjs/react.production.min';
 import { backendurl } from '../config';
 
+import ScreenShare from '../ScreenShare';
+
 export default function ChatUI(){
 
     const [newMessage, addNewMsg] = useState('');
@@ -98,15 +100,7 @@ export default function ChatUI(){
                                 </>
                             }
                     />}
-                    {/*<ReactPlayer 
-                        className="stream"
-                        url={"https://youtu.be/rqNZTZBK3gs"}
-                        volume={0.00}
-                        playing={true}
-                        height={"77.2vh"}
-                        width={"70vw"}
-                    />*/}
-
+                    <ScreenShare className='shareSize'/>
                 </div>
 
                 <div className="chatLeft">
