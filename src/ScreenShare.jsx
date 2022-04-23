@@ -1,40 +1,38 @@
-import { OTSession, OTPublisher, OTStreams, OTSubscriber } from 'opentok-react';
 import React from 'react';
 import { useState, useEffect } from "react";
 
-import IframeScreenshareMin, { initializeScreenShare, requestScreenShare } from 'iframe-screenshare';
-import iframeScreenshareMin from 'iframe-screenshare';
-
+//https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices
+//https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia
+//https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSettings/displaySurface
+//https://developer.mozilla.org/en-US/docs/Web/API/Screen_Capture_API/Using_Screen_Capture
+//https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
+//https://developer.mozilla.org/en-US/docs/Web/API/MediaStream_Recording_API
+//https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack
 
 export default function ScreenShare(){
 
     const [isSharing, setSharing] = useState(false);
-    const stream = null;
+    const stream = document.getElementById("video");
 
-    //const webstoreUrl = 'https://chrome.google.com/webstore/detail/chrome-remote-desktop/inomeogfingihgjfjlpeplalcfajhgai';
-    const toggleSharing = () => {
+    const toggleSharing = async () => {
         if (isSharing != true){
-            stream = navigator.mediaDevices.getDisplayMedia();
+            // attain a media stream object 
+            stream.srcObject = await navigator.mediaDevices.getDisplayMedia({video: {cursor: "always"}, audio: true});
+            stream.play(); // start screen sharing 
+        }
+        else{ //end screen sharing 
+            //stream.getTracks().stop();
+            stream.srcObject = null;
         }
         setSharing(!isSharing);
     };
 
-    //const { initializeScreenShare } = require('iframe-screenshare');
-    //const apiKey = "47489311";
-    //const sessionId = "1_MX40NzQ4OTMxMX5-MTY1MDY2NTQ5MzgwOH5DSHpCVEc3UDZRL1ZNVWZxY1J0ZGw4QlZ-fg";
-    //const token = "T1==cGFydG5lcl9pZD00NzQ4OTMxMSZzaWc9MTc1ZWY1ZWY2YmVkY2E1NjkyMDY1MGU4OGNhOTVkYjg0MGFlMzJjNDpzZXNzaW9uX2lkPTFfTVg0ME56UTRPVE14TVg1LU1UWTFNRFkyTlRRNU16Z3dPSDVEU0hwQ1ZFYzNVRFpSTDFaTlZXWnhZMUowWkd3NFFsWi1mZyZjcmVhdGVfdGltZT0xNjUwNjY1NTY1Jm5vbmNlPTAuOTg2MzQzMjI4MjI2Njk0NCZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjUzMjU3NTY0JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9";
-    
     return (
         <div>
             <button onClick={toggleSharing}>
                 Share Screen
             </button>
-           
-            {/*requestScreenShare() && toggleSharing*/}
-            {/*
-            <OTSession apiKey={apiKey} sessionId={sessionId} token={token}>
-                <OTPublisher properties={{ videoSource: 'screen', width: 200, height: 200 }}/>
-            </OTSession>*/}
+            <video id='video' width={'500px'}></video>
        </div>
     )
 }
