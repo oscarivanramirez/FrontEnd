@@ -12,6 +12,7 @@ import Thumbnail from "../Thumbnail";
 import flare from '../images/purpleflare.gif';
 import purplecity from '../images/purplecity.gif'
 
+import ScreenShare from "../ScreenShare";
 
 export default function HomeScreen(){
 
@@ -89,6 +90,9 @@ export default function HomeScreen(){
                 
                 
             </div>
+            {/*temp screen sharing in home page for now*/}
+            <ScreenShare className='shareSize'/>
+
         </div>
     
     )
