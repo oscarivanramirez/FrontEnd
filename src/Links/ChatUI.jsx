@@ -18,11 +18,16 @@ export default function ChatUI(){
     const [error, setError] = useState('');
     const [messages, setMessages] = useState(undefined);
     const [refresh, setRefresh] = useState(0);
+    const [chatter, setChatter] = useState('')
 
     const [webcamState, setWebcamState] = useState(false) //
 
     const session = useSession();
     let {roomname} = useParams();
+
+    useEffect(() =>{
+        setChatter(session.name.userName)
+    })
 
     useEffect(() => {
         axios.get(`${backendurl}messages/${roomname}/list`)
@@ -42,7 +47,7 @@ export default function ChatUI(){
     };
 
     const handleAddMessage = () => {
-        axios.post(`${backendurl}messages/create/${roomname}/${newMessage}`)
+        axios.post(`${backendurl}messages/create/${roomname}/${newMessage}/${chatter}`)
         .then((res) => {
             console.log(res);
             setRefresh(refresh + 1)
@@ -117,7 +122,7 @@ export default function ChatUI(){
                     <div className="sentMessages">
                         {messages && messages.map((messages, index) => (
                             <div key={`${messages}-${index}`}>
-                                <p>{messages}<br/></p>
+                                <p>{messages[0]} : {messages[1]}<br/></p>
                             </div>
                         ))}
                         <div ref={messageEnd}/>
