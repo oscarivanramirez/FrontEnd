@@ -10,7 +10,7 @@ export default function WebcamMain(cameraState){
   };
 
   return (
-      <div>
+      <div className="relativeWebcam">
             <Webcam class='videoSize' videoConstraints={videoConstraints}/>
       </div>
     );

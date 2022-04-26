@@ -105,7 +105,7 @@ export default function ChatUI(){
                                 </>
                             }
                     />}
-                    <ScreenShare className='shareSize'/>
+                    <ScreenShare/>
                 </div>
 
                 <div className="chatLeft">

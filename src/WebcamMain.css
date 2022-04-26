@@ -1,9 +1,16 @@
 .videoSize{
     border: 0px solid green;
-    width: 30vw;
-    height: 30vh;
+    width: 20vw;
+    height: 20vh;
     display: flex;
     position: absolute;
     z-index: 1;
-    margin-left: -77px;
+    margin-left: -45px;
+}
+
+.relativeWebcam{
+    border: 0px solid red;
+    position: relative;
+    margin-top: 0px;
+    z-index: 1;
 }
