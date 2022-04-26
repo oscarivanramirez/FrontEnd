@@ -11,7 +11,7 @@ export default function WebcamMain(cameraState){
 
   return (
       <div className="relativeWebcam">
-            <Webcam class='videoSize' videoConstraints={videoConstraints}/>
+            <Webcam class='videoSize' videoConstraints={videoConstraints} mirrored={true}/>
       </div>
     );
   };
