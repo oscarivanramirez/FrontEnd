@@ -8,6 +8,7 @@ import {useSession} from './UserSession'
 import { Link } from "react-router-dom";
 import purplecity from './images/purplecity.gif';
 import { backendurl } from "./config";
+import PassWordStrength from "./PasswordStrength";
 
 export default function NavBar(){
     
@@ -158,6 +159,7 @@ export default function NavBar(){
                                                     placeholder={'Enter your UserName'}/>
                                                 <br/>
                                                 <input
+                                                    type="password"
                                                     value={PW}
                                                     onChange={(event) => setPW(event.target.value)}
                                                     placeholder={'Enter your PassWord'}/>
@@ -182,9 +184,14 @@ export default function NavBar(){
                                                     placeholder={'Enter a UserName'}/>
                                                 <br/>
                                                 <input
+                                                    type="password"
                                                     value={newPW}
                                                     onChange={(event) => setNewPW(event.target.value)}
+
                                                     placeholder={'Enter a Unique PassWord'}/>
+                                                <br/>
+                                                
+                                                <PassWordStrength password={newPW}/>
                                                 <br/>
                                                 </>
                                             }

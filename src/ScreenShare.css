@@ -1,0 +1,13 @@
+
+.vidSize{
+    border: 0px solid black;
+    width: 66.29vw;
+    margin-left: 50px;
+    height: 73vh;
+    z-index: 0;
+    margin-top: -10px;
+}
+
+.btnPos{
+    margin-top: 1vh;
+}

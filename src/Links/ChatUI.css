@@ -24,7 +24,7 @@ div.chatLeft{
     align-self: center;
 }
 div.chatTitle{
-    border: 0px solid blue;
+    border: 1px solid blue;
     background-color: rgba(45, 18, 54, 0.9);
 }
 div.sentMessages{
@@ -97,6 +97,8 @@ div.chat-animated-background{
   }
 
   .shareSize{
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    z-index: 1;
   }

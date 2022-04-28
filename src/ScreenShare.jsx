@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import './ScreenShare.css'
 
 //https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices
 //https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia
@@ -21,18 +22,20 @@ export default function ScreenShare(){
             stream.play(); // start screen sharing 
         }
         else{ //end screen sharing 
-            //stream.getTracks().stop();
-            stream.srcObject = null;
+            stream.srcObject.getTracks().forEach(track => track.stop()); // completely ends screen sharing by stopping the 
+                                                                         // media stream object in the array of media streams
+            stream.srcObject = null; // gets rid of black box that is left over when ending share screen
+
         }
         setSharing(!isSharing);
     };
 
     return (
         <div>
-            <button onClick={toggleSharing}>
+            <video id='video' className='vidSize'></video>
+            <button className='btnPos' onClick={toggleSharing}>
                 Share Screen
             </button>
-            <video id='video' width={'500px'}></video>
        </div>
     )
 }
