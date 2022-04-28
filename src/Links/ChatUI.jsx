@@ -20,7 +20,7 @@ export default function ChatUI(){
     const [error, setError] = useState('');
     const [messages, setMessages] = useState(undefined);
     const [refresh, setRefresh] = useState(0);
-    const [chatter, setChatter] = useState('')
+    const [chatter, setChatter] = useState('');
 
     const [webcamState, setWebcamState] = useState(false) //
 
@@ -128,7 +128,7 @@ export default function ChatUI(){
                         onChange={(event) => addNewMsg(event.target.value)}
                         className="typing" type="text"/>
                     </div>
-                    <button onClick={handleAddMessage}>Chat</button>
+                    <button onClick={chatter ? handleAddMessage : (e)=> alert('Must login or sign up')}>Chat</button>
                 </div>
 
             </div>
