@@ -4,9 +4,10 @@ import './PasswordStrength.css'
 
 export default function PassWordStrength({password}){
     const passwordResult = zxcvbn(password)
-    const passwordScore = passwordResult.score * 100/4
-    console.log(password)
-    console.log(passwordScore)
+    const numCases = 4
+    const wholeNum = 100
+    const passwordMeter = (passwordResult.score * wholeNum)/numCases
+    
 
     const funcPasswordLabel = () => {
         switch(passwordResult.score){
@@ -43,7 +44,7 @@ export default function PassWordStrength({password}){
     }
 
     const changePasswordColor = () =>({
-        width: `${passwordScore}%`,
+        width: `${passwordMeter}%`,
         background: funcProgressColor(),
         height: '7px',
     })
@@ -51,7 +52,6 @@ export default function PassWordStrength({password}){
     const pw = () => {
         var pw = password.toString();
         const errors = [];
-        console.log(pw.length);
         if(pw.length < 8){
             errors.push('Has at least 8 characters')
         }
@@ -65,7 +65,6 @@ export default function PassWordStrength({password}){
             errors.push('Has a special characters')
         }
         if(errors.length > 0){
-            console.log(errors.join('\n'))
             return errors
         }
         return true
