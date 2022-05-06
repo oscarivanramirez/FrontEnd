@@ -77,7 +77,7 @@ export default function PassWordStrength({password}){
                 <div className="progress-bar" style={changePasswordColor()}>
                 </div>
             </div>
-            <p style={{color: funcProgressColor()}}>{funcPasswordLabel()}</p>
+            <p className="pass"style={{color: funcProgressColor()}}>{funcPasswordLabel()}</p>
             <span>{pw()[0]}</span>
             <br/>
             <span>{pw()[1]}</span>
