@@ -82,6 +82,7 @@ div.chat-animated-background{
   .buttonPulse{
     color: #fff;
     text-decoration: none;
+    z-index: -1;
   }
   
   .buttonPulse:hover{

@@ -122,14 +122,14 @@ export default function ChatUI(){
                         <div ref={messageEnd}/>
                     </div>
 
-                    <div className='buttonPulse'> {/* Div for user input and Chat Button */}
+                    <form className='buttonPulse'> {/* Div for user input and Chat Button */}
                         <input 
                         value={newMessage}
                         onChange={(event) => addNewMsg(event.target.value)}
                         className="typing" type="text"/>
-                    </div>
-                    <button onClick={chatter ? handleAddMessage : (e)=> alert('Must login or sign up')}>Chat</button>
-                </div>
+                        <button type='submit' onClick={chatter ? handleAddMessage : (e)=> alert('Must login or sign up')}>Chat</button>
+                    </form>
+                </div>s
 
             </div>
         </div>

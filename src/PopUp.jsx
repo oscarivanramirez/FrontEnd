@@ -6,8 +6,10 @@ export default function Popup({content, handleCloseX, handleCloseS}){
         <div className = "modal">
             <div className="modelContent">
                 <button onClick = {handleCloseX}>x</button>
-                {content}
-                <button onClick = {handleCloseS}>Submit</button>
+                <form>
+                    {content}
+                    <button type="submit" onClick = {handleCloseS}>Submit</button>
+                </form>
             </div>
             
         </div>
