@@ -14,6 +14,8 @@ import purplecity from '../images/purplecity.gif'
 
 import ScreenShare from "../ScreenShare";
 
+import { Carousel } from "3d-react-carousal";
+
 export default function HomeScreen(){
 
     const GENRES = ['Games','IRL','Music','Esports','Creative']
@@ -22,32 +24,57 @@ export default function HomeScreen(){
     const [refresh, setRefresh] = useState(0);
     const session = useSession(); // Has access to the value
 
+    const [slides, setSlides] = useState([]);
+
     useEffect(() => {
         axios.get('https://swejol.herokuapp.com/rooms/list')
         .then((res) => {
             if(res.data){
                 setRooms(res.data);
-                console.log(rooms)
+                console.log(rooms);
+                setSlides([
+                    <div className="currRooms">   
+                        <Link to={`/ChatUI/${rooms[0].roomName}`}>
+                            <div className="room1">
+                                <AR      key={`${rooms[0]}`}                  
+                                    roomStreamer={rooms[0].createrName}
+                                    roomName={rooms[0].roomName}
+                                    numUsers={rooms[0].num_users}
+                                    genre={rooms[0].genre}
+                                />
+                                {/*<Link to={"/ChatUI"}></Link> */}
+                                
+                                
+                            </div>
+                        </Link>
+                    </div>
+                ]);
             }
         })
         .catch((err) => {
             console.log(err);
             setError(err.toString());
-        })
+            
+        });
+        
     }, [refresh])
 
     console.log(rooms);
+
+    
     return(
         
         <div className="animated-background">
             {/*<img className="homeBackground" src={purplecity} alt="loading..." />*/}
 
             <Nav/>
-            {/*
+            {
             <div className="mainContent">
                 <img className="mainContentBackground" src={flare} alt="loading..." />
-                <Thumbnail/>
-            </div>*/}
+                <div className="contentWrapper">
+                    <Carousel slides={slides} arrows={true}/>
+                </div>  
+            </div>}
             <hr className="rounded"/>
             <div className="currRooms">
                 
@@ -91,7 +118,6 @@ export default function HomeScreen(){
                 
             </div>
             {/*temp screen sharing in home page for now*/}
-            <ScreenShare className='shareSize'/>
 
         </div>
     
