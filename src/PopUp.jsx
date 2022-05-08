@@ -8,6 +8,7 @@ export default function Popup({content, handleCloseX, handleCloseS}){
                 <button onClick = {handleCloseX}>x</button>
                 {content}
                 <button onClick = {handleCloseS}>Submit</button>
+                
             </div>
             
         </div>

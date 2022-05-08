@@ -127,6 +127,7 @@ export default function ChatUI(){
                         value={newMessage}
                         onChange={(event) => addNewMsg(event.target.value)}
                         className="typing" type="text"/>
+                        {/*<button type='submit' onClick={chatter ? handleAddMessage : (e)=> alert('Must login or sign up')}>Chat</button>*/}
                     </div>
                     <button onClick={chatter ? handleAddMessage : (e)=> alert('Must login or sign up')}>Chat</button>
                 </div>

@@ -8,11 +8,7 @@ import {Link,useParams} from 'react-router-dom';
 
 import { useSession } from "../UserSession";
 //import Chat from './ChatUI'
-import Thumbnail from "../Thumbnail";
-import flare from '../images/purpleflare.gif';
-import purplecity from '../images/purplecity.gif'
 
-import ScreenShare from "../ScreenShare";
 
 export default function HomeScreen(){
 
@@ -22,21 +18,47 @@ export default function HomeScreen(){
     const [refresh, setRefresh] = useState(0);
     const session = useSession(); // Has access to the value
 
+    const [slides, setSlides] = useState([]);
+
     useEffect(() => {
         axios.get('https://swejol.herokuapp.com/rooms/list')
         .then((res) => {
             if(res.data){
                 setRooms(res.data);
                 //console.log(rooms)
+                console.log(rooms);
+                /*
+                setSlides([
+                    <div className="currRooms">   
+                        <Link to={`/ChatUI/${rooms[0].roomName}`}>
+                            <div className="room1">
+                                <AR      key={`${rooms[0]}`}                  
+                                    roomStreamer={rooms[0].createrName}
+                                    roomName={rooms[0].roomName}
+                                    numUsers={rooms[0].num_users}
+                                    genre={rooms[0].genre}
+                                />
+                                
+                                
+                            </div>
+                        </Link>
+                    </div>
+                ]);
+                */
             }
         })
         .catch((err) => {
             console.log(err);
             setError(err.toString());
-        })
+            
+        });
+        
     }, [refresh])
 
     //console.log(rooms);
+    console.log(rooms);
+
+    
     return(
         
         <div className="animated-background">
@@ -46,7 +68,9 @@ export default function HomeScreen(){
             {/*
             <div className="mainContent">
                 <img className="mainContentBackground" src={flare} alt="loading..." />
-                <Thumbnail/>
+                <div className="contentWrapper">
+                    <Carousel slides={slides} arrows={true}/>
+                </div>  
             </div>*/}
             <hr className="rounded"/>
             <div className="currRooms">
