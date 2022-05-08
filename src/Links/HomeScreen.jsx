@@ -27,7 +27,7 @@ export default function HomeScreen(){
         .then((res) => {
             if(res.data){
                 setRooms(res.data);
-                console.log(rooms)
+                //console.log(rooms)
             }
         })
         .catch((err) => {
@@ -36,7 +36,7 @@ export default function HomeScreen(){
         })
     }, [refresh])
 
-    console.log(rooms);
+    //console.log(rooms);
     return(
         
         <div className="animated-background">
@@ -91,7 +91,7 @@ export default function HomeScreen(){
                 
             </div>
             {/*temp screen sharing in home page for now*/}
-            <ScreenShare className='shareSize'/>
+            {/*<ScreenShare className='shareSize'/>*/}
 
         </div>
     

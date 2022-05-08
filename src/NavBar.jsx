@@ -5,7 +5,7 @@ import Popup from "./PopUp";
 import axios from "axios";
 import { useState,useEffect } from 'react';
 import {useSession} from './UserSession'
-import { Link } from "react-router-dom";
+import {Link,useParams, useNavigate} from 'react-router-dom';
 import purplecity from './images/purplecity.gif';
 import { backendurl } from "./config";
 import PassWordStrength from "./PasswordStrength";
@@ -19,6 +19,9 @@ export default function NavBar(){
     const [user, setUser] = useState('');
     const [PW, setPW] = useState('');
     const [error, setError] = useState('');
+    const [search, setSearch] = useState('');
+    const [roomSearched, setRoom] = useState('');
+    const navigate = useNavigate();
     
     const toggleLoginPopUp = () => {
         setLoginState(!loginState);
@@ -71,7 +74,7 @@ export default function NavBar(){
     useEffect(() => {
         const data = localStorage.getItem("SessionInfo");
         session.setSession(JSON.parse(data));
-        console.log(session.name)
+        //console.log(session.name)
     },[])
 
     useEffect(() => {
@@ -116,6 +119,28 @@ export default function NavBar(){
         })
     }
     
+    /*
+    useEffect(()=>{
+        //console.log(search)
+        axios.get(`${backendurl}rooms/${search}/list`)
+        .then((res) => {
+            if(res.data){
+                setRoom(res.data);
+                console.log('im looking for',roomSearched)
+            }
+            
+        })
+        .catch((err) => {
+            console.log(err);
+            //setError(err.toString());
+        })
+    },[search])
+    */
+    const handleSearch = () =>{
+        navigate(`/Search/${search}`)
+        console.log("bye")
+    }
+    
 
     return(
         <div className="Header">
@@ -126,8 +151,8 @@ export default function NavBar(){
             </Link>
             
             <div className="browse">
-                <input type="text"/>
-                <button>
+                <input value={search} onChange={(event) => setSearch(event.target.value)} type="text"/>
+                <button onClick={handleSearch}>
                     Search
                 </button>
             </div>
